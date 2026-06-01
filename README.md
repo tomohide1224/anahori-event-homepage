@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 西太子堂から地球を掘ろう！ Webサイト
 
-## Getting Started
+「西太子堂から地球を掘ろう！」穴掘りイベントの告知・案内用Webサイトです。
 
-First, run the development server:
+単なるイベント情報の掲載ではなく、空き地を子どもたちの冒険の入口にするワクワク感、地域の温かさ、親子で外遊びを楽しむ空気感を伝えることを目的にしています。
+
+## イベント概要
+
+- イベント名：西太子堂から地球を掘ろう！
+- 開催日：6月28日（土）
+- 時間：11:00〜15:00
+- 場所：西太子堂駅南側の空き地
+- 住所：太子堂4-9-8
+- 主催：そとあそびプロジェクト・せたがや
+- 持ち物：スコップ、飲みもの、タオル、汚れてもよい服装、帽子、必要に応じて軍手
+
+## 技術構成
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Static Export
+- Cloudflare Pages 想定
+
+## 開発コマンド
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ビルド
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Cloudflare Pages では、ビルドコマンドを `npm run build`、出力ディレクトリを `out` に設定する想定です。
 
-## Learn More
+## 構成
 
-To learn more about Next.js, take a look at the following resources:
+```text
+app/
+  globals.css
+  layout.tsx
+  page.tsx
+data/
+  event.ts
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+イベント情報は `data/event.ts` に構造化してあります。今後、イベント一覧、申込管理、写真管理、Supabase連携へ拡張しやすいようにしています。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## デザイン方針
 
-## Deploy on Vercel
+- スマホファースト
+- 青空、土、草、宝探しの色
+- 子どもが読みやすい大きめの文字
+- 手作り感と冒険感
+- 金属探知機、宝探し、土の断面を連想させる表現
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 未確定・差し替え予定
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 申込み要否
+- 中止判断の連絡方法
+- スコップ貸出の有無
+- 実写真の差し替え
+- TOPバナー画像の追加
+
+## ブランド注意
+
+穴掘り・そとあそび系のブランドとして制作しています。亀屋・和菓子系の上品な世界観とは混ぜない方針です。
