@@ -1,165 +1,280 @@
 import { diggingEvent } from "@/data/event";
 
-const essentials = [
-  ["日時", `${diggingEvent.date} ${diggingEvent.time}`],
-  ["場所", `${diggingEvent.place}（${diggingEvent.address}）`],
-  ["持ち物", "スコップ・飲みもの・タオル・汚れてもよい服装"],
-  ["主催", diggingEvent.organizer]
-];
-
-const experiences = [
+const overviewItems = [
   {
-    title: "土を掘る",
-    text: "空き地の土を、自分の手で掘ってみる。深くなるほど、いつものまちが少し違って見えてくる。"
+    label: "開催日",
+    value: diggingEvent.date
   },
   {
-    title: "探知機で探す",
-    text: "金属探知機の反応を頼りに、地面の下の気配を探す。何があるかは、掘るまでわからない。"
+    label: "時間",
+    value: diggingEvent.time
   },
   {
-    title: "見つけて観察する",
-    text: "みみず、石ころ、化石みたいなもの、なぞのもの。見つけたものをみんなで見せ合う。"
+    label: "場所",
+    value: diggingEvent.place
+  },
+  {
+    label: "持ち物",
+    value: "スコップ・飲みもの・汚れてもよい服装"
   }
 ];
 
-const notes = [
-  "熱中症対策のため、飲み物は必ず各自でご持参ください。",
-  "小雨決行、雨天中止です。",
-  "汚れてもよい服装でご参加ください。",
-  "安全のため、スタッフの案内に従ってください。",
-  "小さなお子さまは保護者の方と一緒にご参加ください。"
+const experienceItems = [
+  {
+    title: "穴を掘る",
+    text: "空き地の土を、自分の手で掘ってみる。掘るほどに、いつものまちが少し違って見えてくる。"
+  },
+  {
+    title: "探知機で探す",
+    text: "金属探知機の反応を頼りに、地面の下にある何かを探す。何が出るかは、掘ってみるまでわからない。"
+  },
+  {
+    title: "見つけて観察する",
+    text: "石ころ、みみず、化石みたいなもの、なぞの金属。見つけたものを、みんなで見せ合う。"
+  }
 ];
 
-function Section({ id, kicker, title, children, dark = false }: { id?: string; kicker: string; title: string; children: React.ReactNode; dark?: boolean }) {
-  return (
-    <section id={id} className={dark ? "bg-[#2f1c10] px-5 py-20 text-[#fff2c6]" : "px-5 py-20 text-[#352012]"}>
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-10 max-w-3xl">
-          <p className={dark ? "mb-3 text-sm font-black tracking-[.25em] text-[#e6b84a]" : "mb-3 text-sm font-black tracking-[.25em] text-[#8b4f24]"}>{kicker}</p>
-          <h2 className="text-4xl font-black leading-tight tracking-tight sm:text-6xl">{title}</h2>
-        </div>
-        {children}
-      </div>
-    </section>
-  );
-}
+const faqItems = [
+  {
+    q: "申込みは必要ですか？",
+    a: "現在調整中です。正式な募集方法は後日ご案内します。"
+  },
+  {
+    q: "雨の日はどうなりますか？",
+    a: "雨天時の対応は別途ご案内予定です。"
+  },
+  {
+    q: "子どもだけでも参加できますか？",
+    a: "小さなお子さまは保護者の方と一緒にご参加ください。"
+  }
+];
 
 export default function Home() {
   return (
-    <main className="bg-[#ead08f] text-[#352012]">
-      <section className="relative min-h-screen overflow-hidden bg-[#111]">
+    <main className="bg-[#f4efe6] text-[#2d241d]">
+      <section className="relative overflow-hidden bg-[#111] text-white">
         <img
           src="/hero-main.png"
-          alt="西太子堂から地球を掘ろう！"
+          alt="西太子堂から地球を掘ろう"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(24,13,5,.82)_0%,rgba(24,13,5,.50)_42%,rgba(24,13,5,.08)_100%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#ead08f] to-transparent" />
 
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-5 pb-16 pt-10 sm:px-8 lg:px-10">
-          <div className="max-w-3xl text-white">
-            <p className="mb-5 inline-block border-y-4 border-[#e6b84a] py-2 text-base font-black tracking-[.22em] text-[#ffe38b] sm:text-xl">
-              掘りたい人、集まれ！
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,.28)_0%,rgba(0,0,0,.5)_45%,rgba(0,0,0,.82)_100%)]" />
+
+        <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col justify-end px-6 pb-16 pt-24">
+          <div className="max-w-3xl">
+            <p className="mb-5 text-sm font-bold tracking-[0.25em] text-[#f5d06c] uppercase">
+              DIGGING EVENT IN NISHITAISHIDO
             </p>
-            <h1 className="text-6xl font-black leading-[.96] tracking-[-.04em] sm:text-8xl lg:text-9xl">
-              西太子堂から<br />地球を掘ろう！
+
+            <h1 className="text-5xl font-black leading-[1.02] tracking-[-0.04em] sm:text-7xl lg:text-8xl">
+              西太子堂から<br />
+              地球を掘ろう。
             </h1>
-            <p className="mt-7 max-w-2xl text-xl font-bold leading-9 text-[#fff2c6] sm:text-2xl">
-              金属探知機でも宝物をさがせ。何が出るかは、掘ってみなきゃわからない。
+
+            <p className="mt-6 max-w-2xl text-lg leading-9 text-[#f5f1e7] sm:text-2xl">
+              金属探知機でも宝物をさがせ。<br />
+              何が出るかは、掘ってみなきゃわからない。
             </p>
           </div>
 
-          <div className="mt-10 grid max-w-5xl gap-3 sm:grid-cols-3">
-            <a href="#details" className="bg-[#e6b84a] px-6 py-4 text-center text-lg font-black text-[#2f1c10] shadow-[8px_8px_0_rgba(0,0,0,.35)] transition hover:-translate-y-1">
-              詳細を見る
+          <div className="mt-12 flex flex-wrap gap-4">
+            <a
+              href="#overview"
+              className="bg-[#f5d06c] px-7 py-4 text-base font-bold text-[#2d241d] transition hover:bg-[#f2c44d]"
+            >
+              イベント概要を見る
             </a>
-            <a href="#story" className="bg-[#fff2c6] px-6 py-4 text-center text-lg font-black text-[#2f1c10] shadow-[8px_8px_0_rgba(0,0,0,.35)] transition hover:-translate-y-1">
-              どんな冒険？
-            </a>
-            <a href="#prepare" className="bg-[#cf5b2b] px-6 py-4 text-center text-lg font-black text-white shadow-[8px_8px_0_rgba(0,0,0,.35)] transition hover:-translate-y-1">
-              持ち物を確認
+
+            <a
+              href="#access"
+              className="border border-white/40 bg-white/10 px-7 py-4 text-base font-bold backdrop-blur-sm transition hover:bg-white/20"
+            >
+              アクセスを見る
             </a>
           </div>
         </div>
       </section>
 
-      <Section id="details" kicker="EVENT DETAILS" title="まず、これだけ見れば大丈夫。">
-        <div className="grid gap-4 md:grid-cols-2">
-          {essentials.map(([label, value]) => (
-            <div key={label} className="border-4 border-[#352012] bg-[#fff4ce] p-6 shadow-[10px_10px_0_rgba(53,32,18,.18)]">
-              <p className="mb-2 text-sm font-black tracking-[.2em] text-[#8b4f24]">{label}</p>
-              <p className="text-2xl font-black leading-snug">{value}</p>
+      <section id="overview" className="mx-auto max-w-6xl px-6 py-24">
+        <div className="max-w-3xl">
+          <p className="text-sm font-bold tracking-[0.25em] text-[#8a6a46] uppercase">
+            EVENT OVERVIEW
+          </p>
+
+          <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            どんなイベント？
+          </h2>
+
+          <p className="mt-6 text-lg leading-10 text-[#5f554c]">
+            西太子堂の空き地を舞台に、みんなで土を掘るイベントです。
+            金属探知機を使った宝探しや、地面の中にあるものを観察しながら、
+            「何が出るかわからない」時間そのものを楽しみます。
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-px overflow-hidden border border-[#d8d0c4] bg-[#d8d0c4] md:grid-cols-2">
+          {overviewItems.map((item) => (
+            <div key={item.label} className="bg-white p-8">
+              <p className="text-sm font-bold tracking-[0.18em] text-[#8a6a46] uppercase">
+                {item.label}
+              </p>
+              <p className="mt-4 text-2xl font-bold leading-relaxed">
+                {item.value}
+              </p>
             </div>
           ))}
         </div>
-      </Section>
+      </section>
 
-      <Section id="story" kicker="THE ADVENTURE" title="ただの穴掘りじゃない。" dark>
-        <div className="grid gap-6 lg:grid-cols-3">
-          {experiences.map((item, index) => (
-            <article key={item.title} className="border-4 border-[#fff2c6] bg-[#4b2a14] p-7 shadow-[12px_12px_0_rgba(0,0,0,.32)]">
-              <p className="mb-8 text-7xl font-black text-[#e6b84a]">0{index + 1}</p>
-              <h3 className="mb-4 text-3xl font-black text-white">{item.title}</h3>
-              <p className="text-lg font-bold leading-8 text-[#fff2c6]">{item.text}</p>
-            </article>
-          ))}
+      <section className="bg-[#2d241d] px-6 py-24 text-[#f5f1e7]">
+        <div className="mx-auto max-w-6xl">
+          <div className="max-w-3xl">
+            <p className="text-sm font-bold tracking-[0.25em] text-[#f5d06c] uppercase">
+              EXPERIENCE
+            </p>
+
+            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+              空き地が、冒険の入口になる。
+            </h2>
+          </div>
+
+          <div className="mt-14 grid gap-10 lg:grid-cols-3">
+            {experienceItems.map((item, index) => (
+              <article key={item.title} className="border-t border-white/20 pt-8">
+                <p className="text-sm font-bold tracking-[0.2em] text-[#f5d06c]">
+                  0{index + 1}
+                </p>
+
+                <h3 className="mt-5 text-3xl font-black">
+                  {item.title}
+                </h3>
+
+                <p className="mt-6 text-lg leading-9 text-[#d5cec6]">
+                  {item.text}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
-      </Section>
+      </section>
 
-      <section className="relative overflow-hidden px-5 py-20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,.35),transparent_18rem),linear-gradient(180deg,#ead08f,#c28a45)]" />
-        <div className="relative mx-auto grid max-w-6xl gap-8 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <div className="grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:items-start">
           <div>
-            <p className="mb-3 text-sm font-black tracking-[.25em] text-[#6a3a18]">WHY WE DIG</p>
-            <h2 className="text-5xl font-black leading-tight tracking-tight sm:text-7xl">空き地は、<br />冒険の入口になる。</h2>
+            <p className="text-sm font-bold tracking-[0.25em] text-[#8a6a46] uppercase">
+              MESSAGE
+            </p>
+
+            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+              子どもも、大人も、
+              本気で土を掘る。
+            </h2>
           </div>
-          <div className="space-y-5 border-4 border-[#352012] bg-[#fff4ce] p-7 text-xl font-bold leading-10 shadow-[12px_12px_0_rgba(53,32,18,.22)]">
-            <p>普段は何もないように見える場所でも、子どもたちにとっては地球とつながる入口になる。</p>
-            <p>大人が用意しすぎるのではなく、「何が出るかわからない」ことを楽しむ。</p>
-            <p>土を掘るというシンプルな行為から、まち・自然・仲間・発見がつながっていく。</p>
+
+          <div className="space-y-7 text-lg leading-10 text-[#5f554c]">
+            <p>
+              まちの中には、まだまだ自由に遊べる余白があります。
+            </p>
+
+            <p>
+              何もないように見える空き地も、見方を変えれば冒険の入口になる。
+            </p>
+
+            <p>
+              子どもたちが自分の手で掘り、見つけ、驚き、
+              大人も一緒になって夢中になる。
+              そんな時間を地域のみんなでつくっていきたいと思っています。
+            </p>
           </div>
         </div>
       </section>
 
-      <Section id="prepare" kicker="PREPARE" title="探検の準備。">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {diggingEvent.belongings.map((item) => (
-            <div key={item} className="border-4 border-[#352012] bg-[#fff4ce] px-6 py-5 text-2xl font-black shadow-[8px_8px_0_rgba(53,32,18,.18)]">
-              {item}
-            </div>
-          ))}
-        </div>
-        <div className="mt-8 border-4 border-[#352012] bg-[#cf5b2b] p-7 text-white shadow-[10px_10px_0_rgba(53,32,18,.25)]">
-          <p className="text-3xl font-black leading-tight">飲みものは必ず持参してください。</p>
-          <p className="mt-3 text-lg font-bold">6月開催の屋外イベントです。熱中症対策をお願いします。</p>
-        </div>
-      </Section>
+      <section id="access" className="bg-[#ebe4d8] px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="max-w-3xl">
+            <p className="text-sm font-bold tracking-[0.25em] text-[#8a6a46] uppercase">
+              ACCESS
+            </p>
 
-      <Section kicker="SAFETY" title="安全に楽しむために。" dark>
-        <div className="grid gap-4 md:grid-cols-2">
-          {notes.map((note) => (
-            <div key={note} className="border-4 border-[#fff2c6] bg-[#4b2a14] p-5 text-lg font-bold leading-8 shadow-[8px_8px_0_rgba(0,0,0,.28)]">
-              {note}
-            </div>
-          ))}
-        </div>
-      </Section>
+            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+              アクセス
+            </h2>
+          </div>
 
-      <Section kicker="FAQ" title="冒険前の確認。">
-        <div className="space-y-4">
-          {diggingEvent.faq.map((item) => (
-            <details key={item.question} className="border-4 border-[#352012] bg-[#fff4ce] p-6 shadow-[8px_8px_0_rgba(53,32,18,.16)]">
-              <summary className="cursor-pointer text-xl font-black">{item.question}</summary>
-              <p className="mt-4 text-lg font-bold leading-8">{item.answer}</p>
+          <div className="mt-12 grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="bg-white p-8">
+              <p className="text-sm font-bold tracking-[0.18em] text-[#8a6a46] uppercase">
+                集合場所（仮）
+              </p>
+
+              <h3 className="mt-4 text-3xl font-black">
+                西太子堂駅 周辺
+              </h3>
+
+              <p className="mt-6 text-lg leading-9 text-[#5f554c]">
+                現在、正式な開催場所を調整中です。
+                仮の表示として、西太子堂駅周辺を掲載しています。
+              </p>
+            </div>
+
+            <div className="overflow-hidden bg-white">
+              <iframe
+                title="西太子堂駅"
+                src="https://www.google.com/maps?q=西太子堂駅&output=embed"
+                width="100%"
+                height="420"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-6 py-24">
+        <div className="max-w-3xl">
+          <p className="text-sm font-bold tracking-[0.25em] text-[#8a6a46] uppercase">
+            FAQ
+          </p>
+
+          <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            よくある質問
+          </h2>
+        </div>
+
+        <div className="mt-12 divide-y divide-[#d8d0c4] border-y border-[#d8d0c4]">
+          {faqItems.map((item) => (
+            <details key={item.q} className="group py-6">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-xl font-bold">
+                {item.q}
+                <span className="text-[#8a6a46] transition group-open:rotate-45">＋</span>
+              </summary>
+
+              <p className="mt-5 max-w-3xl text-lg leading-9 text-[#5f554c]">
+                {item.a}
+              </p>
             </details>
           ))}
         </div>
-      </Section>
+      </section>
 
-      <footer className="bg-[#2f1c10] px-5 py-14 text-center text-[#fff2c6]">
-        <p className="text-4xl font-black tracking-tight sm:text-6xl">{diggingEvent.title}</p>
-        <p className="mt-5 text-xl font-bold">{diggingEvent.date}・{diggingEvent.time} / {diggingEvent.place}</p>
-        <p className="mt-3 font-bold">主催：{diggingEvent.organizer}</p>
+      <footer className="bg-[#2d241d] px-6 py-16 text-[#f5f1e7]">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-sm font-bold tracking-[0.25em] text-[#f5d06c] uppercase">
+            SOTOASOBI PROJECT
+          </p>
+
+          <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-6xl">
+            西太子堂から地球を掘ろう。
+          </h2>
+
+          <div className="mt-10 grid gap-4 text-lg text-[#d5cec6] sm:grid-cols-2">
+            <p>{diggingEvent.date} / {diggingEvent.time}</p>
+            <p>{diggingEvent.place}</p>
+            <p>主催：{diggingEvent.organizer}</p>
+          </div>
+        </div>
       </footer>
     </main>
   );
