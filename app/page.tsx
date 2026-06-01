@@ -1,214 +1,280 @@
 import { diggingEvent } from "@/data/event";
 
-const mapCards = [
-  { label: "集合日", value: diggingEvent.date, icon: "📅", color: "bg-treasure" },
-  { label: "冒険時間", value: diggingEvent.time, icon: "⏰", color: "bg-white" },
-  { label: "集合場所", value: diggingEvent.place, icon: "📍", color: "bg-grass text-white" },
-  { label: "住所", value: diggingEvent.address, icon: "🗺️", color: "bg-orange-100" }
+const overviewItems = [
+  {
+    label: "開催日",
+    value: diggingEvent.date
+  },
+  {
+    label: "時間",
+    value: diggingEvent.time
+  },
+  {
+    label: "場所",
+    value: diggingEvent.place
+  },
+  {
+    label: "持ち物",
+    value: "スコップ・飲みもの・汚れてもよい服装"
+  }
 ];
 
-const treasureSteps = [
-  { title: "掘る", text: "スコップで土を掘って、地球の中へ近づこう。", icon: "⛏️" },
-  { title: "探す", text: "金属探知機がピピッと鳴ったら、そこが冒険ポイント。", icon: "🔎" },
-  { title: "見つける", text: "みみず、石ころ、化石っぽいもの、謎の金属。", icon: "💎" },
-  { title: "見せ合う", text: "見つけたものをみんなで観察。大人も子どもも本気で遊ぶ。", icon: "🌎" }
+const experienceItems = [
+  {
+    title: "穴を掘る",
+    text: "空き地の土を、自分の手で掘ってみる。掘るほどに、いつものまちが少し違って見えてくる。"
+  },
+  {
+    title: "探知機で探す",
+    text: "金属探知機の反応を頼りに、地面の下にある何かを探す。何が出るかは、掘ってみるまでわからない。"
+  },
+  {
+    title: "見つけて観察する",
+    text: "石ころ、みみず、化石みたいなもの、なぞの金属。見つけたものを、みんなで見せ合う。"
+  }
 ];
 
-const finds = ["みみず", "もぐら？", "化石っぽい石", "なぞの金属", "宝もの", "地球のひみつ"];
-
-function WoodSign({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return (
-    <div className={`relative rounded-2xl border-4 border-[#4b2a14] bg-[#8b4f24] px-5 py-3 text-white shadow-sticker ${className}`}>
-      <div className="absolute inset-x-3 top-2 h-1 rounded-full bg-white/20" />
-      <div className="absolute inset-x-5 bottom-2 h-1 rounded-full bg-black/15" />
-      <div className="relative z-10">{children}</div>
-    </div>
-  );
-}
-
-function PosterTitle({ badge, title, lead }: { badge: string; title: string; lead?: string }) {
-  return (
-    <div className="mb-8 text-center">
-      <WoodSign className="mx-auto mb-4 inline-block rotate-[-2deg] text-sm font-black tracking-widest sm:text-base">
-        {badge}
-      </WoodSign>
-      <h2 className="adventure-outline text-4xl font-black leading-tight text-treasure sm:text-6xl">{title}</h2>
-      {lead ? <p className="mx-auto mt-4 max-w-2xl text-lg font-black leading-8 text-[#5d351a]">{lead}</p> : null}
-    </div>
-  );
-}
-
-function PaperCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return (
-    <div className={`rounded-[2rem] border-4 border-[#4b2a14] bg-[#fff3c7] p-6 shadow-card ring-4 ring-[#d59b42]/20 ${className}`}>
-      {children}
-    </div>
-  );
-}
+const faqItems = [
+  {
+    q: "申込みは必要ですか？",
+    a: "現在調整中です。正式な募集方法は後日ご案内します。"
+  },
+  {
+    q: "雨の日はどうなりますか？",
+    a: "雨天時の対応は別途ご案内予定です。"
+  },
+  {
+    q: "子どもだけでも参加できますか？",
+    a: "小さなお子さまは保護者の方と一緒にご参加ください。"
+  }
+];
 
 export default function Home() {
   return (
-    <main className="overflow-hidden bg-[#f3d18a] text-[#4b2a14]">
-      <section className="relative min-h-screen px-4 py-5 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_10%,rgba(255,255,255,.6),transparent_18rem),radial-gradient(circle_at_85%_15%,rgba(255,215,91,.45),transparent_16rem),linear-gradient(180deg,#73d5ff_0%,#f8d77b_48%,#8b4f24_100%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-40 soil-cut" />
-        <div className="relative mx-auto max-w-6xl">
-          <div className="mb-4 flex justify-center">
-            <WoodSign className="text-center text-lg font-black sm:text-2xl">掘りたい人、集まれ！</WoodSign>
+    <main className="bg-[#f4efe6] text-[#2d241d]">
+      <section className="relative overflow-hidden bg-[#111] text-white">
+        <img
+          src="/hero-main.png"
+          alt="西太子堂から地球を掘ろう"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,.28)_0%,rgba(0,0,0,.5)_45%,rgba(0,0,0,.82)_100%)]" />
+
+        <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col justify-end px-6 pb-16 pt-24">
+          <div className="max-w-3xl">
+            <p className="mb-5 text-sm font-bold tracking-[0.25em] text-[#f5d06c] uppercase">
+              DIGGING EVENT IN NISHITAISHIDO
+            </p>
+
+            <h1 className="text-5xl font-black leading-[1.02] tracking-[-0.04em] sm:text-7xl lg:text-8xl">
+              西太子堂から<br />
+              地球を掘ろう。
+            </h1>
+
+            <p className="mt-6 max-w-2xl text-lg leading-9 text-[#f5f1e7] sm:text-2xl">
+              金属探知機でも宝物をさがせ。<br />
+              何が出るかは、掘ってみなきゃわからない。
+            </p>
           </div>
 
-          <div className="relative overflow-hidden rounded-[2.5rem] border-[8px] border-[#4b2a14] bg-[#6ccdf4] shadow-card">
-            <img
-              src="/hero-main.png"
-              alt="西太子堂から地球を掘ろう！ 冒険ポスター"
-              className="w-full object-cover sm:max-h-[72vh]"
-            />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#4b2a14]/90 via-[#4b2a14]/45 to-transparent px-4 pb-5 pt-20 text-center">
-              <p className="mx-auto inline-block rotate-[-1deg] rounded-full border-4 border-white bg-treasure px-5 py-2 text-base font-black text-[#4b2a14] shadow-sticker sm:text-2xl">
-                金属探知機でも宝物をさがせ！
+          <div className="mt-12 flex flex-wrap gap-4">
+            <a
+              href="#overview"
+              className="bg-[#f5d06c] px-7 py-4 text-base font-bold text-[#2d241d] transition hover:bg-[#f2c44d]"
+            >
+              イベント概要を見る
+            </a>
+
+            <a
+              href="#access"
+              className="border border-white/40 bg-white/10 px-7 py-4 text-base font-bold backdrop-blur-sm transition hover:bg-white/20"
+            >
+              アクセスを見る
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="overview" className="mx-auto max-w-6xl px-6 py-24">
+        <div className="max-w-3xl">
+          <p className="text-sm font-bold tracking-[0.25em] text-[#8a6a46] uppercase">
+            EVENT OVERVIEW
+          </p>
+
+          <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            どんなイベント？
+          </h2>
+
+          <p className="mt-6 text-lg leading-10 text-[#5f554c]">
+            西太子堂の空き地を舞台に、みんなで土を掘るイベントです。
+            金属探知機を使った宝探しや、地面の中にあるものを観察しながら、
+            「何が出るかわからない」時間そのものを楽しみます。
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-px overflow-hidden border border-[#d8d0c4] bg-[#d8d0c4] md:grid-cols-2">
+          {overviewItems.map((item) => (
+            <div key={item.label} className="bg-white p-8">
+              <p className="text-sm font-bold tracking-[0.18em] text-[#8a6a46] uppercase">
+                {item.label}
+              </p>
+              <p className="mt-4 text-2xl font-bold leading-relaxed">
+                {item.value}
               </p>
             </div>
-          </div>
-
-          <div className="mx-auto -mt-4 grid w-[94%] gap-3 rounded-[2rem] border-4 border-[#4b2a14] bg-[#fff3c7]/95 p-4 shadow-card sm:-mt-7 sm:grid-cols-3">
-            <div className="rounded-2xl border-4 border-[#4b2a14] bg-treasure px-4 py-3 text-center text-xl font-black shadow-sticker">
-              {diggingEvent.date}
-            </div>
-            <div className="rounded-2xl border-4 border-[#4b2a14] bg-white px-4 py-3 text-center text-xl font-black shadow-sticker">
-              {diggingEvent.time}
-            </div>
-            <div className="rounded-2xl border-4 border-[#4b2a14] bg-grass px-4 py-3 text-center text-xl font-black text-white shadow-sticker">
-              {diggingEvent.place}
-            </div>
-          </div>
-
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <a href="#map" className="rounded-full border-4 border-[#4b2a14] bg-sunset px-8 py-4 text-xl font-black text-white shadow-sticker transition hover:-translate-y-1">
-              冒険マップを見る
-            </a>
-            <a href="#gear" className="rounded-full border-4 border-[#4b2a14] bg-treasure px-8 py-4 text-xl font-black text-[#4b2a14] shadow-sticker transition hover:-translate-y-1">
-              探検準備をする
-            </a>
-          </div>
+          ))}
         </div>
       </section>
 
-      <section id="map" className="relative px-5 py-16 sm:px-8 lg:px-10">
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(75,42,20,.06)_25%,transparent_25%),linear-gradient(-45deg,rgba(75,42,20,.06)_25%,transparent_25%)] bg-[length:28px_28px]" />
-        <div className="relative mx-auto max-w-6xl">
-          <PosterTitle badge="ADVENTURE MAP" title="冒険マップ" lead="西太子堂の空き地が、この日だけは地球につながる入口になる。" />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {mapCards.map((item) => (
-              <PaperCard key={item.label} className={`${item.color} text-center`}>
-                <div className="mb-2 text-5xl">{item.icon}</div>
-                <p className="text-sm font-black opacity-80">{item.label}</p>
-                <p className="mt-1 text-2xl font-black leading-tight">{item.value}</p>
-              </PaperCard>
-            ))}
-          </div>
-          <PaperCard className="mt-5 bg-[#fff7df] text-center">
-            <p className="text-xl font-black">主催：{diggingEvent.organizer}</p>
-          </PaperCard>
-        </div>
-      </section>
-
-      <section className="soil-cut px-5 py-16 text-white sm:px-8 lg:px-10">
+      <section className="bg-[#2d241d] px-6 py-24 text-[#f5f1e7]">
         <div className="mx-auto max-w-6xl">
-          <PosterTitle badge="MISSION" title="掘る、探す、見つける！" lead="ただ穴を掘るだけじゃない。何が出るかわからないから、冒険になる。" />
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {treasureSteps.map((step) => (
-              <div key={step.title} className="rounded-[2rem] border-4 border-white bg-[#fff3c7] p-6 text-[#4b2a14] shadow-sticker">
-                <div className="mb-3 text-6xl">{step.icon}</div>
-                <h3 className="text-3xl font-black">{step.title}</h3>
-                <p className="mt-3 text-base font-bold leading-7">{step.text}</p>
-              </div>
+          <div className="max-w-3xl">
+            <p className="text-sm font-bold tracking-[0.25em] text-[#f5d06c] uppercase">
+              EXPERIENCE
+            </p>
+
+            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+              空き地が、冒険の入口になる。
+            </h2>
+          </div>
+
+          <div className="mt-14 grid gap-10 lg:grid-cols-3">
+            {experienceItems.map((item, index) => (
+              <article key={item.title} className="border-t border-white/20 pt-8">
+                <p className="text-sm font-bold tracking-[0.2em] text-[#f5d06c]">
+                  0{index + 1}
+                </p>
+
+                <h3 className="mt-5 text-3xl font-black">
+                  {item.title}
+                </h3>
+
+                <p className="mt-6 text-lg leading-9 text-[#d5cec6]">
+                  {item.text}
+                </p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="px-5 py-16 sm:px-8 lg:px-10">
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <div className="grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:items-start">
+          <div>
+            <p className="text-sm font-bold tracking-[0.25em] text-[#8a6a46] uppercase">
+              MESSAGE
+            </p>
+
+            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+              子どもも、大人も、
+              本気で土を掘る。
+            </h2>
+          </div>
+
+          <div className="space-y-7 text-lg leading-10 text-[#5f554c]">
+            <p>
+              まちの中には、まだまだ自由に遊べる余白があります。
+            </p>
+
+            <p>
+              何もないように見える空き地も、見方を変えれば冒険の入口になる。
+            </p>
+
+            <p>
+              子どもたちが自分の手で掘り、見つけ、驚き、
+              大人も一緒になって夢中になる。
+              そんな時間を地域のみんなでつくっていきたいと思っています。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="access" className="bg-[#ebe4d8] px-6 py-24">
         <div className="mx-auto max-w-6xl">
-          <PosterTitle badge="TREASURE BOOK" title="お宝図鑑" lead="土の中から出てくるものは、全部この日の宝もの。" />
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-            {finds.map((item, index) => (
-              <div key={item} className="flex aspect-square rotate-[-2deg] items-center justify-center rounded-[2rem] border-4 border-[#4b2a14] bg-treasure p-4 text-center text-xl font-black shadow-sticker even:rotate-[2deg]">
-                <span>{index === 0 ? "🪱" : index === 1 ? "🕳️" : index === 2 ? "🦴" : index === 3 ? "🔩" : index === 4 ? "💎" : "🌎"}<br />{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+          <div className="max-w-3xl">
+            <p className="text-sm font-bold tracking-[0.25em] text-[#8a6a46] uppercase">
+              ACCESS
+            </p>
 
-      <section id="gear" className="relative px-5 py-16 sm:px-8 lg:px-10">
-        <div className="mx-auto max-w-6xl">
-          <PosterTitle badge="GEAR" title="探検準備" lead="汗をかいて、土まみれになって、思いきり遊ぶ準備をしよう。" />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {diggingEvent.belongings.map((item) => (
-              <PaperCard key={item} className="bg-[#fff7df] text-center text-2xl font-black">
-                <span className="mr-2">🎒</span>{item}
-              </PaperCard>
-            ))}
+            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+              アクセス
+            </h2>
           </div>
-          <div className="mt-6 rounded-[2rem] border-[6px] border-[#4b2a14] bg-sunset p-6 text-center text-white shadow-card">
-            <p className="text-3xl font-black leading-tight">飲みものは必ず持ってきてね！</p>
-            <p className="mt-2 text-lg font-bold">熱中症対策のため、各自でご持参ください。</p>
-          </div>
-        </div>
-      </section>
 
-      <section className="px-5 py-16 sm:px-8 lg:px-10">
-        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-2">
-          <PaperCard className="bg-[#e8ffd7]">
-            <PosterTitle badge="PROMISE" title="安全のやくそく" />
-            <ul className="space-y-3 text-lg font-black leading-8">
-              {diggingEvent.notes.map((note) => (
-                <li key={note} className="flex gap-3"><span>✅</span><span>{note}</span></li>
-              ))}
-            </ul>
-          </PaperCard>
-          <PaperCard className="bg-[#fff7df]">
-            <PosterTitle badge="MESSAGE" title="空き地を冒険の入口に" />
-            <div className="space-y-4 text-lg font-bold leading-9">
-              <p>まちの中には、まだまだ子どもたちが自由に遊べる余白があります。</p>
-              <p>何もないように見える空き地も、見方を変えれば冒険の入口になります。</p>
-              <p>子どもたちが自分の手で掘り、見つけ、驚き、大人も一緒になって楽しむ。そんな時間を、地域のみんなでつくっていきたいと思っています。</p>
+          <div className="mt-12 grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="bg-white p-8">
+              <p className="text-sm font-bold tracking-[0.18em] text-[#8a6a46] uppercase">
+                集合場所（仮）
+              </p>
+
+              <h3 className="mt-4 text-3xl font-black">
+                西太子堂駅 周辺
+              </h3>
+
+              <p className="mt-6 text-lg leading-9 text-[#5f554c]">
+                現在、正式な開催場所を調整中です。
+                仮の表示として、西太子堂駅周辺を掲載しています。
+              </p>
             </div>
-          </PaperCard>
+
+            <div className="overflow-hidden bg-white">
+              <iframe
+                title="西太子堂駅"
+                src="https://www.google.com/maps?q=西太子堂駅&output=embed"
+                width="100%"
+                height="420"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="px-5 py-16 sm:px-8 lg:px-10">
+      <section className="mx-auto max-w-5xl px-6 py-24">
+        <div className="max-w-3xl">
+          <p className="text-sm font-bold tracking-[0.25em] text-[#8a6a46] uppercase">
+            FAQ
+          </p>
+
+          <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+            よくある質問
+          </h2>
+        </div>
+
+        <div className="mt-12 divide-y divide-[#d8d0c4] border-y border-[#d8d0c4]">
+          {faqItems.map((item) => (
+            <details key={item.q} className="group py-6">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-xl font-bold">
+                {item.q}
+                <span className="text-[#8a6a46] transition group-open:rotate-45">＋</span>
+              </summary>
+
+              <p className="mt-5 max-w-3xl text-lg leading-9 text-[#5f554c]">
+                {item.a}
+              </p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <footer className="bg-[#2d241d] px-6 py-16 text-[#f5f1e7]">
         <div className="mx-auto max-w-6xl">
-          <PosterTitle badge="PHOTO QUEST" title="冒険の記録" lead="当日の写真や過去の様子を入れるエリア。熱量が伝わる写真に差し替えて育てていきます。" />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {["集合写真", "本気で穴掘り", "金属探知機", "青空と空き地"].map((label, index) => (
-              <div key={label} className="flex aspect-square rotate-[-2deg] items-center justify-center rounded-[2rem] border-4 border-[#4b2a14] bg-[#fff3c7] p-5 text-center text-xl font-black shadow-sticker even:rotate-[2deg]">
-                <span>{index === 0 ? "📸" : index === 1 ? "⛏️" : index === 2 ? "🔎" : "🌤️"}<br />{label}<br /><small className="text-sm">写真差し替え枠</small></span>
-              </div>
-            ))}
+          <p className="text-sm font-bold tracking-[0.25em] text-[#f5d06c] uppercase">
+            SOTOASOBI PROJECT
+          </p>
+
+          <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-6xl">
+            西太子堂から地球を掘ろう。
+          </h2>
+
+          <div className="mt-10 grid gap-4 text-lg text-[#d5cec6] sm:grid-cols-2">
+            <p>{diggingEvent.date} / {diggingEvent.time}</p>
+            <p>{diggingEvent.place}</p>
+            <p>主催：{diggingEvent.organizer}</p>
           </div>
         </div>
-      </section>
-
-      <section className="px-5 py-16 sm:px-8 lg:px-10">
-        <div className="mx-auto max-w-4xl">
-          <PosterTitle badge="FAQ" title="冒険前の確認" />
-          <div className="space-y-4">
-            {diggingEvent.faq.map((item) => (
-              <details key={item.question} className="rounded-3xl border-4 border-[#4b2a14] bg-[#fff7df] p-5 shadow-sticker">
-                <summary className="cursor-pointer text-lg font-black">{item.question}</summary>
-                <p className="mt-4 text-base font-bold leading-8">{item.answer}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <footer className="soil-cut px-5 py-14 text-center text-white">
-        <p className="adventure-outline text-4xl font-black text-treasure">{diggingEvent.title}</p>
-        <p className="mt-4 text-xl font-black">{diggingEvent.date}・{diggingEvent.time} / {diggingEvent.place}</p>
-        <p className="mt-3 text-sm font-bold">主催：{diggingEvent.organizer}</p>
       </footer>
     </main>
   );
