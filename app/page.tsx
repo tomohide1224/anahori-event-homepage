@@ -3,22 +3,27 @@ import { diggingEvent } from "@/data/event";
 const programItems = [
   {
     title: "あなほり",
+    image: "/program-digging.png",
     text: "スコップで土を掘って、地面の下にあるものを探します。何が出るかは、掘ってからのお楽しみ。"
   },
   {
     title: "金属探知機",
+    image: "/program-metal-detector.png",
     text: "ピピッと鳴ったらチャンス。地面の下にかくれた反応を探します。"
   },
   {
     title: "ダウジング",
+    image: "/program-dowsing.png",
     text: "L字ロッドを持って、目に見えない反応を探します。科学とロマンが混ざる探検です。"
   },
   {
     title: "かき氷食べ放題",
+    image: "/program-shaved-ice.png",
     text: "たくさん掘って、たくさん遊んだら、冷たいかき氷でひと休み。"
   },
   {
     title: "ハンモックで休憩",
+    image: "/program-hammock.png",
     text: "木陰のハンモックで、風にゆられながらのんびり休憩できます。"
   }
 ];
@@ -32,7 +37,7 @@ const essentials = [
 
 function Panel({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={`rounded-[2rem] border border-white/18 bg-[#130f0b]/72 p-6 text-white shadow-[0_30px_90px_rgba(0,0,0,.35)] backdrop-blur-md sm:p-8 ${className}`}>
+    <div className={`rounded-[2rem] border border-white/20 bg-[#130f0b]/72 p-6 text-white shadow-[0_30px_90px_rgba(0,0,0,.38)] backdrop-blur-md sm:p-8 ${className}`}>
       {children}
     </div>
   );
@@ -45,8 +50,14 @@ function Label({ children }: { children: React.ReactNode }) {
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#100d0a] text-white">
-      <div className="absolute inset-0 -z-10 bg-[url('/underground-bg.png')] bg-[length:100%_auto] bg-top bg-no-repeat" />
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(16,13,10,.06)_0%,rgba(16,13,10,.12)_18%,rgba(16,13,10,.36)_42%,rgba(16,13,10,.68)_72%,rgba(16,13,10,.88)_100%)]" />
+      <div className="fixed inset-0 -z-20 bg-[#100d0a]">
+        <img
+          src="/underground-bg.png"
+          alt="地中へ潜っていく冒険の背景"
+          className="h-full w-full object-cover object-top opacity-100"
+        />
+      </div>
+      <div className="fixed inset-0 -z-10 bg-[linear-gradient(180deg,rgba(16,13,10,.10)_0%,rgba(16,13,10,.20)_22%,rgba(16,13,10,.48)_56%,rgba(16,13,10,.78)_100%)]" />
 
       <section className="min-h-screen px-5 pb-20 pt-8 sm:px-8 lg:px-10">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
@@ -98,13 +109,18 @@ export default function Home() {
             </p>
           </Panel>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-5">
             {programItems.map((item, index) => (
-              <Panel key={item.title} className="p-5 sm:p-5">
-                <p className="text-xs font-black tracking-[0.2em] text-[#f7d36f]">0{index + 1}</p>
-                <h3 className="mt-4 text-2xl font-black leading-tight">{item.title}</h3>
-                <p className="mt-4 text-sm font-medium leading-7 text-[#f0e6d5]">{item.text}</p>
-              </Panel>
+              <article key={item.title} className="overflow-hidden rounded-[1.4rem] border border-white/20 bg-[#130f0b]/74 text-white shadow-[0_24px_70px_rgba(0,0,0,.35)] backdrop-blur-md">
+                <div className="aspect-[4/3] overflow-hidden bg-[#201811]">
+                  <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
+                </div>
+                <div className="p-5">
+                  <p className="text-xs font-black tracking-[0.2em] text-[#f7d36f]">0{index + 1}</p>
+                  <h3 className="mt-3 text-2xl font-black leading-tight">{item.title}</h3>
+                  <p className="mt-4 text-sm font-medium leading-7 text-[#f0e6d5]">{item.text}</p>
+                </div>
+              </article>
             ))}
           </div>
         </div>
