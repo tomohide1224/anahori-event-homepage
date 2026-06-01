@@ -50,14 +50,14 @@ function Label({ children }: { children: React.ReactNode }) {
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#100d0a] text-white">
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      <div className="absolute inset-0 z-0 bg-[#100d0a]">
         <img
           src="/underground-bg.png"
           alt="地中へ潜っていく冒険の背景"
-          className="h-full min-h-full w-full object-cover object-top opacity-100"
+          className="absolute left-1/2 top-0 h-auto w-full min-w-[960px] -translate-x-1/2 object-contain object-top opacity-100"
         />
       </div>
-      <div className="absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(16,13,10,.05)_0%,rgba(16,13,10,.12)_18%,rgba(16,13,10,.24)_42%,rgba(16,13,10,.44)_70%,rgba(16,13,10,.64)_100%)]" />
+      <div className="absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(16,13,10,.02)_0%,rgba(16,13,10,.08)_16%,rgba(16,13,10,.20)_40%,rgba(16,13,10,.42)_72%,rgba(16,13,10,.70)_100%)]" />
 
       <div className="relative z-10">
         <section className="min-h-screen px-5 pb-20 pt-8 sm:px-8 lg:px-10">
