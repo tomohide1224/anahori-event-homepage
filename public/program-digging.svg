@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="穴掘りのイラスト">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7fd7ff"/>
+      <stop offset="1" stop-color="#f8d67a"/>
+    </linearGradient>
+    <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b77434"/>
+      <stop offset="1" stop-color="#5b351b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#sky)"/>
+  <circle cx="660" cy="120" r="70" fill="#ffe27a"/>
+  <path d="M0 410 C160 350 270 450 420 390 C560 335 670 390 800 350 L800 800 L0 800 Z" fill="#62ad58"/>
+  <path d="M0 520 C180 480 260 575 430 520 C570 475 660 530 800 500 L800 800 L0 800 Z" fill="url(#soil)"/>
+  <ellipse cx="430" cy="600" rx="180" ry="65" fill="#3d2413" opacity=".45"/>
+  <circle cx="345" cy="278" r="54" fill="#f4b58b"/>
+  <path d="M295 250 C310 195 385 192 405 245 C372 230 335 232 295 250 Z" fill="#3d2413"/>
+  <path d="M312 335 C350 305 408 313 438 352 L470 475 L300 475 Z" fill="#f35f32"/>
+  <path d="M325 475 L295 630" stroke="#28445f" stroke-width="36" stroke-linecap="round"/>
+  <path d="M425 475 L492 628" stroke="#28445f" stroke-width="36" stroke-linecap="round"/>
+  <path d="M440 352 L560 440" stroke="#f4b58b" stroke-width="34" stroke-linecap="round"/>
+  <path d="M560 440 L625 535" stroke="#74431f" stroke-width="18" stroke-linecap="round"/>
+  <path d="M613 526 C670 530 700 570 680 615 C625 602 605 575 613 526 Z" fill="#c48b4b" stroke="#4b2a14" stroke-width="10"/>
+  <path d="M308 357 L250 455" stroke="#f4b58b" stroke-width="34" stroke-linecap="round"/>
+  <circle cx="240" cy="462" r="19" fill="#f4b58b"/>
+  <circle cx="330" cy="280" r="6" fill="#2d241d"/><circle cx="370" cy="280" r="6" fill="#2d241d"/>
+  <path d="M333 305 Q354 320 377 304" fill="none" stroke="#2d241d" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="180" cy="645" r="18" fill="#d6b16d"/><circle cx="625" cy="675" r="24" fill="#e4c37f"/>
+  <path d="M120 710 C160 690 195 730 230 705" fill="none" stroke="#e99a88" stroke-width="14" stroke-linecap="round"/>
+</svg>
