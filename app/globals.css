@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-skyAdventure: #55B7E6;
+  --color-soil: #8B5A2B;
+  --color-deepSoil: #5D3B1D;
+  --color-grass: #62B65E;
+  --color-treasure: #F6C445;
+  --color-sunset: #FF7A3D;
+  --color-paper: #FFF7E3;
+  --shadow-sticker: 0 10px 0 rgba(93, 59, 29, 0.18);
+  --shadow-card: 0 18px 50px rgba(93, 59, 29, 0.18);
+  --font-sans: var(--font-rounded), system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(246, 196, 69, 0.32), transparent 34rem),
+    linear-gradient(180deg, #d9f3ff 0%, #fff7e3 36%, #f5dfbd 100%);
+}
+
+::selection {
+  background: #f6c445;
+  color: #5d3b1d;
+}
+
+.adventure-outline {
+  text-shadow:
+    3px 3px 0 #5d3b1d,
+    -1px -1px 0 #5d3b1d,
+    1px -1px 0 #5d3b1d,
+    -1px 1px 0 #5d3b1d,
+    1px 1px 0 #5d3b1d;
+}
+
+.soil-cut {
+  background-image:
+    radial-gradient(circle at 14% 40%, rgba(255,255,255,0.18) 0 0.4rem, transparent 0.45rem),
+    radial-gradient(circle at 74% 30%, rgba(255,255,255,0.16) 0 0.32rem, transparent 0.37rem),
+    radial-gradient(circle at 48% 72%, rgba(0,0,0,0.08) 0 0.45rem, transparent 0.5rem),
+    linear-gradient(180deg, #9b6a38 0%, #6a421e 100%);
+}
+
+.map-dash {
+  background-image: linear-gradient(90deg, rgba(93,59,29,.35) 50%, transparent 0);
+  background-size: 18px 2px;
+}
