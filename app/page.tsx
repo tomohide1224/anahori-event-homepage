@@ -32,22 +32,48 @@ function Card({ children, className = "" }: { children: React.ReactNode; classNa
   return <div className={`rounded-[2rem] border-4 border-deepSoil bg-white/92 p-6 shadow-card ${className}`}>{children}</div>;
 }
 
+function HeroPoster() {
+  return (
+    <div className="relative overflow-hidden rounded-[2.5rem] border-[6px] border-deepSoil bg-[#62c9f4] shadow-card">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_52%_18%,rgba(255,255,255,.92),transparent_11rem),linear-gradient(180deg,#00a8ec_0%,#76d7ff_43%,#fff1b8_44%,#c07937_78%,#6a3b1d_100%)]" />
+      <div className="absolute left-0 right-0 top-0 h-20 bg-[linear-gradient(135deg,#246b35_0_18%,transparent_18%),linear-gradient(225deg,#246b35_0_18%,transparent_18%)] opacity-80" />
+      <div className="absolute left-6 top-7 rounded-full bg-white/95 px-5 py-3 text-5xl shadow-sticker sm:left-12 sm:top-12">☁️</div>
+      <div className="absolute right-8 top-10 rounded-full bg-white/95 px-5 py-3 text-5xl shadow-sticker sm:right-20 sm:top-16">☁️</div>
+      <div className="absolute bottom-[22%] left-0 right-0 h-10 bg-grass" />
+      <div className="absolute bottom-0 left-0 right-0 h-[28%] soil-cut" />
+      <div className="absolute bottom-[21%] left-[9%] text-6xl sm:text-8xl">🧒</div>
+      <div className="absolute bottom-[20%] left-[22%] rotate-[-22deg] text-6xl sm:text-8xl">⛏️</div>
+      <div className="absolute bottom-[20%] right-[22%] text-6xl sm:text-8xl">👩</div>
+      <div className="absolute bottom-[19%] right-[9%] rotate-12 text-6xl sm:text-8xl">🔎</div>
+      <div className="absolute bottom-[7%] left-[12%] rotate-[-8deg] text-5xl sm:text-7xl">🪱</div>
+      <div className="absolute bottom-[6%] right-[16%] rotate-6 text-5xl sm:text-7xl">💎</div>
+      <div className="absolute bottom-[9%] left-1/2 -translate-x-1/2 text-6xl sm:text-8xl">🎁</div>
+
+      <div className="relative z-10 flex min-h-[520px] flex-col items-center justify-center px-4 py-14 text-center sm:min-h-[620px] sm:px-8">
+        <p className="mb-5 rotate-[-2deg] rounded-full border-4 border-deepSoil bg-treasure px-6 py-3 text-base font-black text-deepSoil shadow-sticker sm:text-xl">
+          掘りたい人、集まれ！
+        </p>
+        <h1 className="adventure-outline max-w-5xl text-5xl font-black leading-[1.02] tracking-tight text-white sm:text-7xl lg:text-8xl">
+          西太子堂から<br className="sm:hidden" />地球を掘ろう！
+        </h1>
+        <div className="mt-6 rotate-[1deg] rounded-[2rem] border-4 border-deepSoil bg-white/95 px-5 py-4 text-xl font-black text-deepSoil shadow-sticker sm:text-3xl">
+          金属探知機でも宝物をさがせ！
+        </div>
+        <div className="mt-4 rounded-full border-4 border-white bg-deepSoil px-6 py-3 text-base font-black text-white shadow-sticker sm:text-xl">
+          何が出るかは、掘ってみなきゃわからない！
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <main className="overflow-hidden">
       <section className="relative min-h-screen bg-[#dff5ff]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_15%,rgba(255,255,255,.95),transparent_23rem),linear-gradient(180deg,#0ea5e9_0%,#8ad7ff_46%,#fff7e3_100%)]" />
-        <div className="absolute left-0 right-0 top-0 h-24 bg-[linear-gradient(135deg,rgba(27,94,32,.45),transparent_35%),linear-gradient(225deg,rgba(27,94,32,.45),transparent_35%)]" />
         <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-4 py-8 sm:px-6 lg:px-8">
-          <div className="overflow-hidden rounded-[2.5rem] border-[6px] border-deepSoil bg-white shadow-card">
-            <div className="relative bg-deepSoil p-2">
-              <img
-                src="/hero-main.png"
-                alt="西太子堂から地球を掘ろう！"
-                className="aspect-[24/10] w-full rounded-[1.9rem] object-cover"
-              />
-            </div>
-          </div>
+          <HeroPoster />
 
           <div className="mx-auto -mt-4 grid w-[94%] gap-4 rounded-[2rem] border-4 border-deepSoil bg-paper/95 p-4 shadow-card sm:-mt-8 sm:grid-cols-3 sm:p-5">
             <div className="rounded-2xl bg-treasure px-4 py-3 text-center font-black text-deepSoil shadow-sticker">
@@ -126,7 +152,7 @@ export default function Home() {
 
       <section id="belongings" className="px-5 py-16 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-6xl">
-          <SectionTitle eyebrow="BRING" title="持ち物・服装" lead="暑さ対策と、思いきり汚れても大丈夫な準備をお願いします。" />
+          <SectionTitle eyebrow="BRING" title="冒険の装備" lead="暑さ対策と、思いきり汚れても大丈夫な準備をお願いします。" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {diggingEvent.belongings.map((item) => (
               <Card key={item} className="bg-white text-center text-xl font-black">
