@@ -37,7 +37,7 @@ const essentials = [
 
 function Panel({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={`rounded-[2rem] border border-white/24 bg-[#130f0b]/62 p-6 text-white shadow-[0_30px_90px_rgba(0,0,0,.38)] backdrop-blur-sm sm:p-8 ${className}`}>
+    <div className={`rounded-[2rem] border border-white/28 bg-[#140f0a]/58 p-6 text-white shadow-[0_30px_90px_rgba(0,0,0,.34)] backdrop-blur-[2px] sm:p-8 ${className}`}>
       {children}
     </div>
   );
@@ -49,15 +49,15 @@ function Label({ children }: { children: React.ReactNode }) {
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-transparent text-white">
-      <div className="fixed inset-0 z-0 bg-[#100d0a]">
+    <main className="relative min-h-screen overflow-hidden bg-[#100d0a] text-white">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           src="/underground-bg.png"
           alt="地中へ潜っていく冒険の背景"
-          className="h-full w-full object-cover object-top opacity-100"
+          className="h-full min-h-full w-full object-cover object-top opacity-100"
         />
       </div>
-      <div className="fixed inset-0 z-[1] bg-[linear-gradient(180deg,rgba(16,13,10,.18)_0%,rgba(16,13,10,.20)_22%,rgba(16,13,10,.38)_56%,rgba(16,13,10,.62)_100%)]" />
+      <div className="absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(16,13,10,.05)_0%,rgba(16,13,10,.12)_18%,rgba(16,13,10,.24)_42%,rgba(16,13,10,.44)_70%,rgba(16,13,10,.64)_100%)]" />
 
       <div className="relative z-10">
         <section className="min-h-screen px-5 pb-20 pt-8 sm:px-8 lg:px-10">
@@ -100,7 +100,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="program" className="min-h-screen px-5 py-24 sm:px-8 lg:px-10">
+        <section id="program" className="px-5 py-24 sm:px-8 lg:px-10">
           <div className="mx-auto max-w-6xl">
             <Panel className="max-w-3xl">
               <Label>PROGRAM</Label>
@@ -110,13 +110,13 @@ export default function Home() {
               </p>
             </Panel>
 
-            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-5">
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {programItems.map((item, index) => (
-                <article key={item.title} className="overflow-hidden rounded-[1.4rem] border border-white/24 bg-[#130f0b]/68 text-white shadow-[0_24px_70px_rgba(0,0,0,.35)] backdrop-blur-sm">
-                  <div className="aspect-[4/3] overflow-hidden bg-[#201811]">
+                <article key={item.title} className="overflow-hidden rounded-[1.8rem] border border-white/28 bg-[#130f0b]/66 text-white shadow-[0_24px_70px_rgba(0,0,0,.34)] backdrop-blur-[2px]">
+                  <div className="aspect-square overflow-hidden bg-[#201811]">
                     <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
                   </div>
-                  <div className="p-5">
+                  <div className="p-6">
                     <p className="text-xs font-black tracking-[0.2em] text-[#f7d36f]">0{index + 1}</p>
                     <h3 className="mt-3 text-2xl font-black leading-tight">{item.title}</h3>
                     <p className="mt-4 text-sm font-medium leading-7 text-[#f0e6d5]">{item.text}</p>
