@@ -73,12 +73,9 @@ const safetyItems = [
 ];
 
 const lastYearPhotos = [
-  "穴掘りの様子",
-  "金属探知機体験",
-  "みんなで発見",
-  "休憩タイム",
-  "集合写真",
-  "空き地の風景"
+  { src: "/gallery-01.jpg", label: "昨年の様子 01" },
+  { src: "/gallery-02.jpg", label: "昨年の様子 02" },
+  { src: "/gallery-03.jpg", label: "昨年の様子 03" }
 ];
 
 const faqItems = [
@@ -235,17 +232,14 @@ export default function Home() {
 
       <section id="last-year" className="bg-[#f8d982] px-5 py-20 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-6xl">
-          <SectionHeading label="LAST YEAR" title="昨年の様子" lead="昨年の写真や動画をここに掲載します。実際の雰囲気が伝わると、はじめて参加する方にも安心してもらえます。" center />
+          <SectionHeading label="LAST YEAR" title="昨年の様子" lead="昨年の写真や動画を掲載しています。実際の雰囲気が伝わると、はじめて参加する方にも安心してもらえます。" center />
 
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {lastYearPhotos.map((label, index) => (
-              <div key={label} className="flex aspect-[4/3] items-center justify-center rounded-[1.4rem] border-4 border-[#4b2a14] bg-[#fff4ce] text-center shadow-[6px_6px_0_rgba(75,42,20,.15)]">
-                <div>
-                  <p className="text-3xl">📷</p>
-                  <p className="mt-3 text-sm font-black tracking-[0.12em] text-[#8a6a46]">PHOTO 0{index + 1}</p>
-                  <p className="mt-1 font-bold text-[#5f554c]">{label}</p>
-                </div>
-              </div>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {lastYearPhotos.map((photo, index) => (
+              <figure key={photo.src} className="overflow-hidden rounded-[1.4rem] border-4 border-[#4b2a14] bg-[#fff4ce] shadow-[6px_6px_0_rgba(75,42,20,.15)]">
+                <img src={photo.src} alt={photo.label} className="aspect-[4/3] w-full object-cover" />
+                <figcaption className="p-4 text-sm font-black text-[#5f554c]">PHOTO 0{index + 1}</figcaption>
+              </figure>
             ))}
           </div>
 
@@ -254,15 +248,14 @@ export default function Home() {
               <p className="text-xs font-black tracking-[0.24em] text-[#8a6a46]">MOVIE</p>
               <h3 className="mt-3 text-3xl font-black">昨年の動画</h3>
               <p className="mt-4 text-base leading-8 text-[#5f554c]">
-                動画URLが決まったら、ここに埋め込みます。穴掘りの様子、発見した瞬間、休憩の雰囲気などを見せる場所です。
+                昨年の様子を動画で見られます。穴掘りの雰囲気や、当日の空気感を確認できます。
               </p>
             </div>
-            <div className="flex aspect-video items-center justify-center rounded-[1.4rem] border-4 border-[#4b2a14] bg-[#2d241d] text-center text-white shadow-[8px_8px_0_rgba(75,42,20,.18)]">
-              <div>
-                <p className="text-5xl">▶</p>
-                <p className="mt-4 text-sm font-black tracking-[0.18em] text-[#f7d36f]">VIDEO PLACEHOLDER</p>
-                <p className="mt-2 text-sm text-[#d5cec6]">YouTube / 動画埋め込み予定</p>
-              </div>
+            <div className="overflow-hidden rounded-[1.4rem] border-4 border-[#4b2a14] bg-[#2d241d] shadow-[8px_8px_0_rgba(75,42,20,.18)]">
+              <video className="aspect-video w-full" controls preload="metadata" poster="/gallery-01.jpg">
+                <source src="/movie-01.mp4" type="video/mp4" />
+                お使いのブラウザは動画再生に対応していません。
+              </video>
             </div>
           </div>
         </div>
@@ -286,15 +279,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl bg-[#f8d982] px-5 py-20 sm:px-8 lg:px-10">
-        <SectionHeading label="FAQ" title="冒険前の確認" center />
-        <div className="mt-10 space-y-3">
-          {faqItems.map((item) => (
-            <details key={item.q} className="rounded-xl border-4 border-[#4b2a14] bg-[#fff4ce] p-5 shadow-[4px_4px_0_rgba(75,42,20,.12)]">
-              <summary className="cursor-pointer text-lg font-black">{item.q}</summary>
-              <p className="mt-4 text-base leading-8 text-[#5f554c]">{item.a}</p>
-            </details>
-          ))}
+      <section className="bg-[#f8d982] px-5 py-20 sm:px-8 lg:px-10">
+        <div className="mx-auto max-w-5xl">
+          <SectionHeading label="FAQ" title="冒険前の確認" center />
+          <div className="mt-10 space-y-3">
+            {faqItems.map((item) => (
+              <details key={item.q} className="rounded-xl border-4 border-[#4b2a14] bg-[#fff4ce] p-5 shadow-[4px_4px_0_rgba(75,42,20,.12)]">
+                <summary className="cursor-pointer text-lg font-black">{item.q}</summary>
+                <p className="mt-4 text-base leading-8 text-[#5f554c]">{item.a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
