@@ -4,15 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>経堂駅前にぎわいプロジェクト｜交通の駅前から、暮らしの駅前へ。</title>
-    <meta
-      name="description"
-      content="経堂駅前を、通り過ぎる場所から、あそぶ・くつろぐ・よむ・つながる“まちのリビング”へ育てるプロジェクトです。2026年6月6日、経堂図書館前でみちあそびを開催します。"
-    />
+    <meta name="description" content="経堂駅前を、通り過ぎる場所から、あそぶ・くつろぐ・よむ・つながる&quot;まちのリビング&quot;へ育てるプロジェクトです。2026年6月6日、経堂図書館前でみちあそびを開催します。" />
     <meta property="og:title" content="経堂駅前にぎわいプロジェクト" />
-    <meta
-      property="og:description"
-      content="交通の駅前から、暮らしの駅前へ。通り過ぎる場所から、まちのリビングへ。"
-    />
+    <meta property="og:description" content="交通の駅前から、暮らしの駅前へ。通り過ぎる場所から、まちのリビングへ。" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/ogp.jpg" />
     <style>
@@ -29,745 +23,112 @@
         --blue: #6f9fc5;
         --ink: #253326;
         --muted: #5d665a;
-        --line: rgba(38, 60, 42, 0.14);
-        --shadow: 0 24px 80px rgba(24, 44, 29, 0.14);
+        --shadow: 0 24px 80px rgba(24,44,29,0.14);
         --radius-xl: 32px;
         --radius-lg: 24px;
         --max: 1180px;
       }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        margin: 0;
-        font-family:
-          system-ui,
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          sans-serif;
-        color: var(--ink);
-        background: var(--cream);
-        letter-spacing: 0.02em;
-      }
-
-      a {
-        color: inherit;
-      }
-
-      img,
-      video {
-        display: block;
-        width: 100%;
-      }
-
-      .site-header {
-        position: fixed;
-        z-index: 80;
-        top: 14px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: min(calc(100% - 28px), var(--max));
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.82);
-        backdrop-filter: blur(16px);
-        box-shadow: 0 12px 50px rgba(0, 0, 0, 0.08);
-      }
-
-      .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 18px;
-        padding: 10px 12px 10px 20px;
-      }
-
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-weight: 900;
-        text-decoration: none;
-        white-space: nowrap;
-      }
-
-      .logo-mark {
-        display: grid;
-        width: 36px;
-        height: 36px;
-        place-items: center;
-        border-radius: 50%;
-        background: var(--green-700);
-        color: #fff;
-      }
-
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        font-size: 13px;
-        font-weight: 800;
-        color: rgba(37, 51, 38, 0.82);
-      }
-
-      .nav-links a {
-        text-decoration: none;
-      }
-
-      .nav-cta {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .btn,
-      .btn-light,
-      .btn-outline,
-      .btn-line {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.45em;
-        min-height: 46px;
-        padding: 12px 20px;
-        border-radius: 999px;
-        font-weight: 950;
-        text-decoration: none;
-        border: 1px solid transparent;
-        transition:
-          transform 0.18s ease,
-          box-shadow 0.18s ease,
-          background 0.18s ease;
-      }
-
-      .btn:hover,
-      .btn-light:hover,
-      .btn-outline:hover,
-      .btn-line:hover {
-        transform: translateY(-2px);
-      }
-
-      .btn {
-        background: var(--yellow);
-        color: #27351f;
-        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
-      }
-
-      .btn-light {
-        background: #fff;
-        color: var(--green-800);
-      }
-
-      .btn-outline {
-        border-color: rgba(255, 255, 255, 0.55);
-        background: rgba(255, 255, 255, 0.12);
-        color: #fff;
-      }
-
-      .btn-line {
-        background: #06c755;
-        color: #fff;
-        box-shadow: 0 14px 36px rgba(6, 199, 85, 0.22);
-      }
-
-      .section {
-        padding: 92px 22px;
-      }
-
-      .wrap {
-        width: min(100%, var(--max));
-        margin: 0 auto;
-      }
-
-      .hero {
-        position: relative;
-        min-height: 92svh;
-        overflow: hidden;
-        background:
-          linear-gradient(110deg, rgba(23, 42, 27, 0.92) 0%, rgba(23, 42, 27, 0.68) 48%, rgba(23, 42, 27, 0.18) 100%),
-          url("assets/future-living-room.jpg") center / cover no-repeat,
-          radial-gradient(circle at 75% 25%, #8ebc77 0, transparent 34%),
-          linear-gradient(135deg, #264a2c, #b9d5a1);
-      }
-
-      .hero::after {
-        content: "";
-        position: absolute;
-        inset: auto 0 0;
-        height: 190px;
-        background: linear-gradient(to top, var(--cream), transparent);
-      }
-
-      .hero-inner {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        min-height: 92svh;
-        align-items: flex-end;
-        width: min(100%, var(--max));
-        margin: 0 auto;
-        padding: 150px 22px 110px;
-      }
-
-      .hero-copy {
-        width: min(760px, 100%);
-        color: #fff;
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin: 0 0 18px;
-        padding: 8px 14px;
-        border: 1px solid rgba(255, 255, 255, 0.35);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.12);
-        font-size: 13px;
-        font-weight: 900;
-        letter-spacing: 0.12em;
-      }
-
-      .label {
-        display: inline-flex;
-        margin: 0 0 18px;
-        padding: 8px 14px;
-        border: 1px solid #bfd2b7;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.7);
-        color: var(--green-600);
-        font-size: 12px;
-        font-weight: 950;
-        letter-spacing: 0.2em;
-      }
-
-      h1,
-      h2,
-      h3,
-      p {
-        margin-top: 0;
-      }
-
-      h1 {
-        margin-bottom: 22px;
-        font-size: clamp(45px, 8vw, 94px);
-        line-height: 0.98;
-        letter-spacing: -0.075em;
-      }
-
-      h2 {
-        margin-bottom: 24px;
-        font-size: clamp(34px, 5vw, 64px);
-        line-height: 1.06;
-        letter-spacing: -0.055em;
-      }
-
-      h3 {
-        margin-bottom: 12px;
-        font-size: clamp(22px, 2.2vw, 30px);
-        line-height: 1.18;
-        letter-spacing: -0.03em;
-      }
-
-      .lead {
-        font-size: clamp(20px, 2.2vw, 30px);
-        line-height: 1.75;
-        font-weight: 900;
-      }
-
-      .body-text {
-        color: var(--muted);
-        font-size: 17px;
-        line-height: 2.05;
-      }
-
-      .hero-actions,
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 34px;
-      }
-
-      .split {
-        display: grid;
-        grid-template-columns: 0.95fr 1.05fr;
-        gap: 52px;
-        align-items: center;
-      }
-
-      .split-top {
-        align-items: start;
-      }
-
-      .visual-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 18px;
-      }
-
-      .visual,
-      .card,
-      .glass-card,
-      .movie-card,
-      .event-card,
-      .support-card {
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.7);
-        border-radius: var(--radius-xl);
-        background: #fff;
-        box-shadow: var(--shadow);
-      }
-
-      .visual-media {
-        position: relative;
-        aspect-ratio: 16 / 10;
-        overflow: hidden;
-        background:
-          linear-gradient(135deg, rgba(234, 243, 223, 0.98), rgba(247, 240, 227, 0.96)),
-          repeating-linear-gradient(45deg, rgba(55, 87, 62, 0.16) 0 1px, transparent 1px 16px);
-      }
-
-      .visual-media img {
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.7s ease;
-      }
-
-      .visual:hover .visual-media img {
-        transform: scale(1.035);
-      }
-
-      .visual-tag {
-        position: absolute;
-        bottom: 14px;
-        left: 14px;
-        z-index: 3;
-        display: inline-flex;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.9);
-        padding: 8px 13px;
-        color: var(--green-700);
-        font-size: 13px;
-        font-weight: 950;
-      }
-
-      .visual-caption {
-        margin: 0;
-        padding: 16px 18px 18px;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.8;
-      }
-
-      .current-before .visual-media::after {
-        content: "現在の写真を配置";
-      }
-
-      .future-after .visual-media::after {
-        content: "未来イメージを配置";
-      }
-
-      .visual-media::after {
-        position: absolute;
-        inset: 0;
-        display: grid;
-        place-items: center;
-        padding: 24px;
-        color: rgba(37, 51, 38, 0.5);
-        font-weight: 900;
-        text-align: center;
-      }
-
-      .visual-media:has(img)::after {
-        display: none;
-      }
-
-      .concept-block {
-        background: var(--cream-2);
-      }
-
-      .glass-card {
-        padding: clamp(28px, 4vw, 48px);
-      }
-
-      .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 18px;
-        margin-top: 38px;
-      }
-
-      .card {
-        padding: 28px;
-      }
-
-      .icon {
-        display: grid;
-        width: 54px;
-        height: 54px;
-        margin-bottom: 18px;
-        place-items: center;
-        border-radius: 18px;
-        background: var(--green-100);
-        color: var(--green-700);
-        font-size: 26px;
-        font-weight: 950;
-      }
-
-      .card p {
-        margin-bottom: 0;
-      }
-
-      .event-section {
-        background: var(--green-100);
-      }
-
-      .event-meta {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-        margin: 26px 0;
-      }
-
-      .event-meta div {
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.86);
-        padding: 18px;
-        font-size: 17px;
-        font-weight: 950;
-      }
-
-      .program-list {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        margin: 18px 0 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      .program-list li {
-        border-radius: 16px;
-        background: #f8f3e8;
-        padding: 13px 14px;
-        color: var(--green-800);
-        font-weight: 850;
-      }
-
-      .enoe-section {
-        position: relative;
-        overflow: hidden;
-        background:
-          radial-gradient(circle at 8% 15%, rgba(246, 202, 78, 0.35), transparent 26%),
-          radial-gradient(circle at 86% 24%, rgba(111, 159, 197, 0.35), transparent 30%),
-          linear-gradient(135deg, #fff8df, #eaf3df 72%);
-      }
-
-      .paint-board {
-        position: relative;
-        min-height: 430px;
-        overflow: hidden;
-        border: 10px solid #fff;
-        border-radius: 36px;
-        background:
-          radial-gradient(circle at 30% 36%, rgba(246, 202, 78, 0.78) 0 38px, transparent 39px),
-          radial-gradient(circle at 64% 28%, rgba(227, 138, 53, 0.62) 0 26px, transparent 27px),
-          radial-gradient(circle at 70% 65%, rgba(111, 159, 197, 0.7) 0 42px, transparent 43px),
-          radial-gradient(circle at 22% 74%, rgba(85, 114, 78, 0.5) 0 28px, transparent 29px),
-          #fffdf4;
-        box-shadow: var(--shadow);
-      }
-
-      .paint-line {
-        position: absolute;
-        height: 14px;
-        border-radius: 999px;
-        background: var(--green-700);
-        transform-origin: left center;
-      }
-
-      .paint-line.one {
-        top: 110px;
-        left: 80px;
-        width: 260px;
-        transform: rotate(-12deg);
-      }
-
-      .paint-line.two {
-        top: 230px;
-        left: 120px;
-        width: 360px;
-        background: var(--orange);
-        transform: rotate(11deg);
-      }
-
-      .paint-line.three {
-        right: 80px;
-        bottom: 96px;
-        width: 240px;
-        background: var(--blue);
-        transform: rotate(-22deg);
-      }
-
-      .paint-note {
-        position: absolute;
-        right: 24px;
-        top: 24px;
-        width: min(250px, calc(100% - 48px));
-        border-radius: 24px;
-        background: rgba(255, 255, 255, 0.88);
-        padding: 18px;
-        color: var(--green-800);
-        font-weight: 900;
-        line-height: 1.6;
-        box-shadow: 0 16px 50px rgba(24, 44, 29, 0.12);
-      }
-
-      .movie-section {
-        background: #f9f4e8;
-      }
-
-      .movie-card {
-        background: var(--green-900);
-        color: #fff;
-      }
-
-      .movie-frame {
-        position: relative;
-        aspect-ratio: 16 / 9;
-        background:
-          linear-gradient(120deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.42)),
-          url("assets/movie-poster.jpg") center / cover no-repeat,
-          linear-gradient(135deg, #3b6140, #9dbb82);
-      }
-
-      .play {
-        position: absolute;
-        inset: 0;
-        display: grid;
-        place-items: center;
-      }
-
-      .play span {
-        display: grid;
-        width: 82px;
-        height: 82px;
-        place-items: center;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.92);
-        color: var(--green-700);
-        font-size: 34px;
-        font-weight: 950;
-        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
-      }
-
-      .movie-caption {
-        padding: 24px;
-      }
-
-      .safety-section {
-        background: var(--cream-2);
-      }
-
-      .safety-grid,
-      .roadmap-grid {
-        display: grid;
-        gap: 16px;
-      }
-
-      .safety-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .safety-item {
-        border-radius: 20px;
-        background: #fff;
-        padding: 18px;
-        box-shadow: 0 10px 30px rgba(24, 44, 29, 0.06);
-        font-weight: 900;
-        line-height: 1.7;
-      }
-
-      .roadmap-grid {
-        grid-template-columns: repeat(4, 1fr);
-        margin-top: 34px;
-      }
-
-      .phase {
-        position: relative;
-        padding: 26px;
-        border-radius: var(--radius-lg);
-        background: #fff;
-        box-shadow: 0 16px 45px rgba(24, 44, 29, 0.08);
-      }
-
-      .phase small {
-        display: block;
-        color: var(--green-600);
-        font-weight: 950;
-        letter-spacing: 0.14em;
-      }
-
-      .phase time {
-        display: block;
-        margin: 8px 0 18px;
-        color: #a26d20;
-        font-weight: 900;
-      }
-
-      .support-section {
-        background: var(--green-700);
-        color: #fff;
-      }
-
-      .support-card {
-        padding: clamp(26px, 4vw, 42px);
-        color: var(--ink);
-      }
-
-      .chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin: 22px 0 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      .chips li {
-        border-radius: 999px;
-        background: var(--green-100);
-        padding: 10px 14px;
-        color: var(--green-600);
-        font-size: 13px;
-        font-weight: 900;
-      }
-
-      .notice {
-        margin-top: 24px;
-        border-radius: 22px;
-        background: #fff6dd;
-        padding: 18px;
-        color: #65543a;
-        font-size: 14px;
-        line-height: 1.9;
-      }
-
-      .footer {
-        background: var(--green-900);
-        color: #fff;
-        padding: 38px 22px 96px;
-      }
-
-      .footer-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-        width: min(100%, var(--max));
-        margin: 0 auto;
-      }
-
-      .footer a {
-        color: rgba(255, 255, 255, 0.82);
-        font-weight: 850;
-        text-decoration: none;
-      }
-
-      .mobile-sticky {
-        display: none;
-      }
-
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color: var(--ink); background: var(--cream); letter-spacing: 0.02em; }
+      a { color: inherit; }
+      img, video { display: block; width: 100%; }
+      .site-header { position: fixed; z-index: 80; top: 14px; left: 50%; transform: translateX(-50%); width: min(calc(100% - 28px), var(--max)); border: 1px solid rgba(255,255,255,0.5); border-radius: 999px; background: rgba(255,255,255,0.82); backdrop-filter: blur(16px); box-shadow: 0 12px 50px rgba(0,0,0,0.08); }
+      .nav { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 10px 12px 10px 20px; }
+      .logo { display: flex; align-items: center; gap: 10px; font-weight: 900; text-decoration: none; white-space: nowrap; }
+      .logo-mark { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 50%; background: var(--green-700); color: #fff; }
+      .nav-links { display: flex; align-items: center; gap: 14px; font-size: 13px; font-weight: 800; color: rgba(37,51,38,0.82); }
+      .nav-links a { text-decoration: none; }
+      .nav-cta { display: flex; align-items: center; gap: 8px; }
+      .btn, .btn-light, .btn-outline, .btn-line { display: inline-flex; align-items: center; justify-content: center; gap: 0.45em; min-height: 46px; padding: 12px 20px; border-radius: 999px; font-weight: 950; text-decoration: none; border: 1px solid transparent; transition: transform 0.18s ease, box-shadow 0.18s ease; }
+      .btn:hover, .btn-light:hover, .btn-outline:hover, .btn-line:hover { transform: translateY(-2px); }
+      .btn { background: var(--yellow); color: #27351f; box-shadow: 0 14px 36px rgba(0,0,0,0.16); }
+      .btn-light { background: #fff; color: var(--green-800); }
+      .btn-outline { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.12); color: #fff; }
+      .btn-line { background: #06c755; color: #fff; box-shadow: 0 14px 36px rgba(6,199,85,0.22); }
+      .section { padding: 92px 22px; }
+      .wrap { width: min(100%, var(--max)); margin: 0 auto; }
+      .hero { position: relative; min-height: 92svh; overflow: hidden; background: linear-gradient(110deg,rgba(23,42,27,0.92) 0%,rgba(23,42,27,0.68) 48%,rgba(23,42,27,0.18) 100%), url("assets/future-living-room.jpg") center/cover no-repeat, radial-gradient(circle at 75% 25%,#8ebc77 0,transparent 34%), linear-gradient(135deg,#264a2c,#b9d5a1); }
+      .hero::after { content: ""; position: absolute; inset: auto 0 0; height: 190px; background: linear-gradient(to top, var(--cream), transparent); }
+      .hero-inner { position: relative; z-index: 2; display: flex; min-height: 92svh; align-items: flex-end; width: min(100%, var(--max)); margin: 0 auto; padding: 150px 22px 110px; }
+      .hero-copy { width: min(760px, 100%); color: #fff; }
+      .eyebrow { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 18px; padding: 8px 14px; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px; background: rgba(255,255,255,0.12); font-size: 13px; font-weight: 900; letter-spacing: 0.12em; }
+      .label { display: inline-flex; margin: 0 0 18px; padding: 8px 14px; border: 1px solid #bfd2b7; border-radius: 999px; background: rgba(255,255,255,0.7); color: var(--green-600); font-size: 12px; font-weight: 950; letter-spacing: 0.2em; }
+      h1,h2,h3,p { margin-top: 0; }
+      h1 { margin-bottom: 22px; font-size: clamp(45px,8vw,94px); line-height: 0.98; letter-spacing: -0.075em; }
+      h2 { margin-bottom: 24px; font-size: clamp(34px,5vw,64px); line-height: 1.06; letter-spacing: -0.055em; }
+      h3 { margin-bottom: 12px; font-size: clamp(22px,2.2vw,30px); line-height: 1.18; letter-spacing: -0.03em; }
+      .lead { font-size: clamp(20px,2.2vw,30px); line-height: 1.75; font-weight: 900; }
+      .body-text { color: var(--muted); font-size: 17px; line-height: 2.05; }
+      .hero-actions, .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+      .split { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 52px; align-items: center; }
+      .split-top { align-items: start; }
+      .visual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+      .visual,.card,.glass-card,.movie-card,.support-card { overflow: hidden; border: 1px solid rgba(255,255,255,0.7); border-radius: var(--radius-xl); background: #fff; box-shadow: var(--shadow); }
+      .visual-media { position: relative; aspect-ratio: 16/10; overflow: hidden; background: linear-gradient(135deg,rgba(234,243,223,0.98),rgba(247,240,227,0.96)); }
+      .visual-media img { height: 100%; object-fit: cover; transition: transform 0.7s ease; }
+      .visual:hover .visual-media img { transform: scale(1.035); }
+      .visual-tag { position: absolute; bottom: 14px; left: 14px; z-index: 3; display: inline-flex; border-radius: 999px; background: rgba(255,255,255,0.9); padding: 8px 13px; color: var(--green-700); font-size: 13px; font-weight: 950; }
+      .visual-caption { margin: 0; padding: 16px 18px 18px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+      .current-before .visual-media::after { content: "現在の写真を配置"; }
+      .future-after .visual-media::after { content: "未来イメージを配置"; }
+      .visual-media::after { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; color: rgba(37,51,38,0.5); font-weight: 900; text-align: center; }
+      .visual-media:has(img)::after { display: none; }
+      .concept-block { background: var(--cream-2); }
+      .glass-card { padding: clamp(28px,4vw,48px); }
+      .feature-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; margin-top: 38px; }
+      .card { padding: 28px; }
+      .icon { display: grid; width: 54px; height: 54px; margin-bottom: 18px; place-items: center; border-radius: 18px; background: var(--green-100); color: var(--green-700); font-size: 26px; font-weight: 950; }
+      .card p { margin-bottom: 0; }
+      .event-section { background: var(--green-100); }
+      .event-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 26px 0; }
+      .event-meta div { border-radius: 20px; background: rgba(255,255,255,0.86); padding: 18px; font-size: 17px; font-weight: 950; }
+      .program-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
+      .program-list li { border-radius: 16px; background: #f8f3e8; padding: 13px 14px; color: var(--green-800); font-weight: 850; }
+      .enoe-section { position: relative; overflow: hidden; background: radial-gradient(circle at 8% 15%,rgba(246,202,78,0.35),transparent 26%), radial-gradient(circle at 86% 24%,rgba(111,159,197,0.35),transparent 30%), linear-gradient(135deg,#fff8df,#eaf3df 72%); }
+      .paint-board { position: relative; min-height: 430px; overflow: hidden; border: 10px solid #fff; border-radius: 36px; background: radial-gradient(circle at 30% 36%,rgba(246,202,78,0.78) 0 38px,transparent 39px), radial-gradient(circle at 64% 28%,rgba(227,138,53,0.62) 0 26px,transparent 27px), radial-gradient(circle at 70% 65%,rgba(111,159,197,0.7) 0 42px,transparent 43px), radial-gradient(circle at 22% 74%,rgba(85,114,78,0.5) 0 28px,transparent 29px), #fffdf4; box-shadow: var(--shadow); }
+      .paint-line { position: absolute; height: 14px; border-radius: 999px; background: var(--green-700); transform-origin: left center; }
+      .paint-line.one { top: 110px; left: 80px; width: 260px; transform: rotate(-12deg); }
+      .paint-line.two { top: 230px; left: 120px; width: 360px; background: var(--orange); transform: rotate(11deg); }
+      .paint-line.three { right: 80px; bottom: 96px; width: 240px; background: var(--blue); transform: rotate(-22deg); }
+      .paint-note { position: absolute; right: 24px; top: 24px; width: min(250px,calc(100% - 48px)); border-radius: 24px; background: rgba(255,255,255,0.88); padding: 18px; color: var(--green-800); font-weight: 900; line-height: 1.6; box-shadow: 0 16px 50px rgba(24,44,29,0.12); }
+      .movie-section { background: #f9f4e8; }
+      .movie-card { background: var(--green-900); color: #fff; }
+      .movie-frame { position: relative; aspect-ratio: 16/9; background: linear-gradient(120deg,rgba(0,0,0,0.08),rgba(0,0,0,0.42)), url("assets/movie-poster.jpg") center/cover no-repeat, linear-gradient(135deg,#3b6140,#9dbb82); }
+      .play { position: absolute; inset: 0; display: grid; place-items: center; }
+      .play span { display: grid; width: 82px; height: 82px; place-items: center; border-radius: 50%; background: rgba(255,255,255,0.92); color: var(--green-700); font-size: 34px; font-weight: 950; box-shadow: 0 18px 50px rgba(0,0,0,0.18); }
+      .movie-caption { padding: 24px; }
+      .safety-section { background: var(--cream-2); }
+      .safety-grid,.roadmap-grid { display: grid; gap: 16px; }
+      .safety-grid { grid-template-columns: repeat(2,1fr); }
+      .safety-item { border-radius: 20px; background: #fff; padding: 18px; box-shadow: 0 10px 30px rgba(24,44,29,0.06); font-weight: 900; line-height: 1.7; }
+      .roadmap-grid { grid-template-columns: repeat(4,1fr); margin-top: 34px; }
+      .phase { position: relative; padding: 26px; border-radius: var(--radius-lg); background: #fff; box-shadow: 0 16px 45px rgba(24,44,29,0.08); }
+      .phase small { display: block; color: var(--green-600); font-weight: 950; letter-spacing: 0.14em; }
+      .phase time { display: block; margin: 8px 0 18px; color: #a26d20; font-weight: 900; }
+      .support-section { background: var(--green-700); color: #fff; }
+      .support-card { padding: clamp(26px,4vw,42px); color: var(--ink); }
+      .chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 0; padding: 0; list-style: none; }
+      .chips li { border-radius: 999px; background: var(--green-100); padding: 10px 14px; color: var(--green-600); font-size: 13px; font-weight: 900; }
+      .notice { margin-top: 24px; border-radius: 22px; background: #fff6dd; padding: 18px; color: #65543a; font-size: 14px; line-height: 1.9; }
+      .footer { background: var(--green-900); color: #fff; padding: 38px 22px 96px; }
+      .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: min(100%, var(--max)); margin: 0 auto; }
+      .footer a { color: rgba(255,255,255,0.82); font-weight: 850; text-decoration: none; }
+      .mobile-sticky { display: none; }
       @media (max-width: 980px) {
-        .nav-links {
-          display: none;
-        }
-
-        .split,
-        .visual-grid,
-        .feature-grid,
-        .roadmap-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .feature-grid {
-          gap: 14px;
-        }
-
-        .safety-grid {
-          grid-template-columns: 1fr;
-        }
+        .nav-links { display: none; }
+        .split,.visual-grid,.feature-grid,.roadmap-grid { grid-template-columns: 1fr; }
+        .safety-grid { grid-template-columns: 1fr; }
       }
-
       @media (max-width: 640px) {
-        .site-header {
-          top: 8px;
-          width: calc(100% - 16px);
-        }
-
-        .nav {
-          padding: 8px 8px 8px 12px;
-        }
-
-        .logo span:last-child {
-          max-width: 154px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-
-        .nav-cta .btn {
-          min-height: 40px;
-          padding: 10px 13px;
-          font-size: 12px;
-        }
-
-        .hero-inner {
-          padding: 130px 18px 96px;
-        }
-
-        .section {
-          padding: 72px 18px;
-        }
-
-        .event-meta,
-        .program-list {
-          grid-template-columns: 1fr;
-        }
-
-        .footer-inner {
-          align-items: flex-start;
-          flex-direction: column;
-        }
-
-        .mobile-sticky {
-          position: fixed;
-          z-index: 90;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 8px;
-          border-top: 1px solid rgba(255, 255, 255, 0.7);
-          background: rgba(255, 255, 255, 0.9);
-          padding: 10px;
-          backdrop-filter: blur(16px);
-          box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.09);
-        }
-
-        .mobile-sticky a {
-          min-height: 46px;
-          padding: 10px 12px;
-          font-size: 14px;
-        }
+        .site-header { top: 8px; width: calc(100% - 16px); }
+        .nav { padding: 8px 8px 8px 12px; }
+        .hero-inner { padding: 130px 18px 96px; }
+        .section { padding: 72px 18px; }
+        .event-meta,.program-list { grid-template-columns: 1fr; }
+        .footer-inner { align-items: flex-start; flex-direction: column; }
+        .mobile-sticky { position: fixed; z-index: 90; bottom: 0; left: 0; right: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; border-top: 1px solid rgba(255,255,255,0.7); background: rgba(255,255,255,0.9); padding: 10px; backdrop-filter: blur(16px); box-shadow: 0 -12px 40px rgba(0,0,0,0.09); }
+        .mobile-sticky a { min-height: 46px; padding: 10px 12px; font-size: 14px; }
       }
     </style>
   </head>
@@ -785,67 +146,46 @@
           <a href="#support">賛同</a>
         </div>
         <div class="nav-cta">
-          <a class="btn" href="FORM_URL_HERE">賛同する</a>
+          <a class="btn" href="#support">賛同する</a>
         </div>
       </nav>
     </header>
-
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-inner">
           <div class="hero-copy">
             <p class="eyebrow">KYODO STATION FRONT COMMUNITY CONCEPT</p>
             <h1 id="hero-title">経堂駅前を、<br />まちのリビングに。</h1>
-            <p class="lead">
-              交通の駅前から、暮らしの駅前へ。<br />
-              通り過ぎる場所から、過ごせる場所へ。
-            </p>
-            <p class="body-text" style="color: rgba(255, 255, 255, 0.88)">
-              本を読んだり、子どもが遊んだり、コーヒー片手にくつろいだり、近所の人と話したり。
-              経堂駅前に、そんな“用事がなくてもいていい場所”を少しずつ育てていくプロジェクトです。
-            </p>
+            <p class="lead">交通の駅前から、暮らしの駅前へ。<br />通り過ぎる場所から、過ごせる場所へ。</p>
+            <p class="body-text" style="color: rgba(255,255,255,0.88)">本を読んだり、子どもが遊んだり、コーヒー片手にくつろいだり、近所の人と話したり。経堂駅前に、そんな&quot;用事がなくてもいていい場所&quot;を少しずつ育てていくプロジェクトです。</p>
             <div class="hero-actions">
               <a class="btn" href="#michiasobi">6/6 みちあそびを見る</a>
-              <a class="btn-outline" href="FORM_URL_HERE">賛同・応援メッセージを送る</a>
-              <a class="btn-outline" href="LINE_URL_HERE">LINEで最新情報を受け取る</a>
+              <a class="btn-outline" href="#support">賛同・応援メッセージを送る</a>
+              <a class="btn-outline" href="#support">LINEで最新情報を受け取る</a>
             </div>
           </div>
         </div>
       </section>
-
       <section class="section" aria-labelledby="before-after-title">
         <div class="wrap split split-top">
           <div>
             <p class="label">BEFORE / AFTER</p>
             <h2 id="before-after-title">いまは、通り過ぎる駅前。<br />これからは、過ごせる駅前へ。</h2>
-            <p class="body-text">
-              経堂駅を出ると、すぐに車道やタクシー動線が広がります。
-              高架下には大きな屋根があるのに、立ち止まる余白はまだ少ない。
-            </p>
-            <p class="body-text">
-              でも、駅前には図書館があり、改札外のカフェがあり、7つの商店街が囲んでいます。
-              新しく巨大な施設をつくるのではなく、経堂にすでにあるものをつなぎ直します。
-            </p>
+            <p class="body-text">経堂駅を出ると、すぐに車道やタクシー動線が広がります。高架下には大きな屋根があるのに、立ち止まる余白はまだ少ない。</p>
+            <p class="body-text">でも、駅前には図書館があり、改札外のカフェがあり、7つの商店街が囲んでいます。新しく巨大な施設をつくるのではなく、経堂にすでにあるものをつなぎ直します。</p>
           </div>
           <div class="visual-grid">
             <article class="visual current-before">
-              <div class="visual-media">
-                <img src="assets/current-station.jpg" alt="現在の経堂駅前の様子" />
-                <span class="visual-tag">いまの経堂駅前</span>
-              </div>
-              <p class="visual-caption">交通機能が中心で、人が流れていく場所。ここに“過ごす余白”をつくります。</p>
+              <div class="visual-media"><img src="assets/current-station.jpg" alt="現在の経堂駅前の様子" /><span class="visual-tag">いまの経堂駅前</span></div>
+              <p class="visual-caption">交通機能が中心で、人が流れていく場所。ここに&quot;過ごす余白&quot;をつくります。</p>
             </article>
             <article class="visual future-after">
-              <div class="visual-media">
-                <img src="assets/future-living-room.jpg" alt="経堂駅前がまちのリビングになった未来イメージ" />
-                <span class="visual-tag">未来の駅前</span>
-              </div>
+              <div class="visual-media"><img src="assets/future-living-room.jpg" alt="経堂駅前がまちのリビングになった未来イメージ" /><span class="visual-tag">未来の駅前</span></div>
               <p class="visual-caption">人工芝、木の家具、本棚、緑、親子の時間。床と空気から変えていきます。</p>
             </article>
           </div>
         </div>
       </section>
-
       <section id="concept" class="section concept-block" aria-labelledby="concept-title">
         <div class="wrap split">
           <div>
@@ -853,154 +193,91 @@
             <h2 id="concept-title">駅前を、<br />家の居間のように。</h2>
           </div>
           <div class="glass-card">
-            <p class="lead" style="color: var(--green-800)">
-              居間は、用事がなくても座っていい場所。<br />
-              本を読んでも、子どもが遊んでも、近所の人と話してもいい場所。
-            </p>
-            <p class="body-text">
-              経堂駅前にぎわいプロジェクトは、駅前を交通だけの場所としてではなく、暮らしがにじみ出る公共空間として育てる取り組みです。
-              まずは小さく試し、使ってみて、声を集め、少しずつ改善していきます。
-            </p>
+            <p class="lead" style="color: var(--green-800)">居間は、用事がなくても座っていい場所。<br />本を読んでも、子どもが遊んでも、近所の人と話してもいい場所。</p>
+            <p class="body-text">経堂駅前にぎわいプロジェクトは、駅前を交通だけの場所としてではなく、暮らしがにじみ出る公共空間として育てる取り組みです。まずは小さく試し、使ってみて、声を集め、少しずつ改善していきます。</p>
           </div>
         </div>
       </section>
-
       <section class="section" aria-labelledby="functions-title">
         <div class="wrap">
           <p class="label">WHAT WE BUILD</p>
           <h2 id="functions-title">駅前で過ごす、4つの理由。</h2>
-          <p class="body-text" style="max-width: 780px">
-            あそぶ、くつろぐ、よむ、つながる。経堂にすでにある図書館、商店街、カフェ、地域の担い手を駅前でつなぎます。
-          </p>
+          <p class="body-text" style="max-width: 780px">あそぶ、くつろぐ、よむ、つながる。経堂にすでにある図書館、商店街、カフェ、地域の担い手を駅前でつなぎます。</p>
           <div class="feature-grid">
-            <article class="card">
-              <div class="icon">✦</div>
-              <h3>あそぶ</h3>
-              <p class="body-text">人工芝の上で、こま、シャボン玉、絵本、ちいさな遊び。駅前で自然に過ごせる遊びを置きます。</p>
-            </article>
-            <article class="card">
-              <div class="icon">☕</div>
-              <h3>くつろぐ</h3>
-              <p class="body-text">ベンチ、ビーズクッション、ハンモック、木の家具。買い物の途中や帰り道に、ひと息つける場所をつくります。</p>
-            </article>
-            <article class="card">
-              <div class="icon">📚</div>
-              <h3>よむ</h3>
-              <p class="body-text">経堂図書館の本や絵本ワゴン、読み聞かせベンチ。駅前で本を手に取れる体験をつくります。</p>
-            </article>
-            <article class="card">
-              <div class="icon">○</div>
-              <h3>つながる</h3>
-              <p class="body-text">商店街、学校、PTA、おやじの会、地域団体、学生、親子。駅前をきっかけに関係性を育てます。</p>
-            </article>
+            <article class="card"><div class="icon">✦</div><h3>あそぶ</h3><p class="body-text">人工芝の上で、こま、シャボン玉、絵本、ちいさな遊び。駅前で自然に過ごせる遊びを置きます。</p></article>
+            <article class="card"><div class="icon">☕</div><h3>くつろぐ</h3><p class="body-text">ベンチ、ビーズクッション、ハンモック、木の家具。買い物の途中や帰り道に、ひと息つける場所をつくります。</p></article>
+            <article class="card"><div class="icon">📚</div><h3>よむ</h3><p class="body-text">経堂図書館の本や絵本ワゴン、読み聞かせベンチ。駅前で本を手に取れる体験をつくります。</p></article>
+            <article class="card"><div class="icon">○</div><h3>つながる</h3><p class="body-text">商店街、学校、PTA、おやじの会、地域団体、学生、親子。駅前をきっかけに関係性を育てます。</p></article>
           </div>
         </div>
       </section>
-
       <section id="michiasobi" class="section event-section" aria-labelledby="michiasobi-title">
         <div class="wrap split">
           <div>
             <p class="label">PHASE 0</p>
             <h2 id="michiasobi-title">まずは、駅前を<br />使ってみる一日。</h2>
             <p class="lead" style="color: var(--green-700)">みちあそび</p>
-            <div class="event-meta" aria-label="開催概要">
-              <div>2026年6月6日（土）</div>
-              <div>13:30〜15:30</div>
-              <div>経堂図書館前 歩行者空間</div>
-              <div>雨天決行</div>
+            <div class="event-meta">
+              <div>2026年6月6日（土）</div><div>13:30〜15:30</div>
+              <div>経堂図書館前 歩行者空間</div><div>雨天決行</div>
             </div>
-            <p class="body-text">
-              地域の住民・図書館・商店街が、駅前空間を“使ってよい場所”にする最初の成功体験。
-              6/6の2時間が、経堂駅前のこれからを考えるための大切な証拠になります。
-            </p>
+            <p class="body-text">地域の住民・図書館・商店街が、駅前空間を&quot;使ってよい場所&quot;にする最初の成功体験。6/6の2時間が、経堂駅前のこれからを考えるための大切な証拠になります。</p>
           </div>
           <article class="visual">
-            <div class="visual-media">
-              <img src="assets/michiasobi-mood.jpg" alt="みちあそび当日の雰囲気イメージ" />
-              <span class="visual-tag">当日の雰囲気</span>
-            </div>
+            <div class="visual-media"><img src="assets/michiasobi-mood.jpg" alt="みちあそび当日の雰囲気イメージ" /><span class="visual-tag">当日の雰囲気</span></div>
             <div style="padding: 22px">
               <h3>当日できること</h3>
               <ul class="program-list">
-                <li>人工芝であそぶ</li>
-                <li>本を読む</li>
-                <li>くつろぐ</li>
-                <li>地域の人と話す</li>
-                <li>お絵描きに参加する</li>
-                <li>応援の声を届ける</li>
+                <li>人工芝であそぶ</li><li>本を読む</li><li>くつろぐ</li>
+                <li>地域の人と話す</li><li>お絵描きに参加する</li><li>応援の声を届ける</li>
               </ul>
             </div>
           </article>
         </div>
       </section>
-
       <section id="enoe" class="section enoe-section" aria-labelledby="enoe-title">
         <div class="wrap split">
           <div>
             <p class="label">DRAWING PROJECT</p>
             <h2 id="enoe-title">みんなの絵で、<br />駅前を少し楽しくする。</h2>
-            <p class="body-text">
-              当日は、お絵描きプロジェクト「えのまち」も実施予定です。
-              子どもたちや参加者が描いた絵が、駅前の雰囲気をやわらかくし、通り過ぎる場所を“参加できる場所”に変えていきます。
-            </p>
-            <p class="body-text">
-              スマホやタブレットから絵を追加できる仕組みを使い、スタッフがQRで案内しながら、駅前にみんなの表現を集めます。
-            </p>
+            <p class="body-text">当日は、お絵描きプロジェクト「えのまち」も実施予定です。子どもたちや参加者が描いた絵が、駅前の雰囲気をやわらかくし、通り過ぎる場所を&quot;参加できる場所&quot;に変えていきます。</p>
+            <p class="body-text">スマホやタブレットから絵を追加できる仕組みを使い、スタッフがQRで案内しながら、駅前にみんなの表現を集めます。</p>
             <div class="actions">
               <a class="btn" href="https://enomachi.pages.dev" target="_blank" rel="noopener noreferrer">えのまちを開く</a>
               <a class="btn-light" href="#support">一緒につくる</a>
             </div>
           </div>
-          <div class="paint-board" aria-label="お絵描きプロジェクトのイメージイラスト">
+          <div class="paint-board">
             <div class="paint-line one"></div>
             <div class="paint-line two"></div>
             <div class="paint-line three"></div>
-            <div class="paint-note">
-              絵を描く。<br />
-              まちに出す。<br />
-              みんなで見る。<br />
-              駅前が、少し自分ごとになる。
-            </div>
+            <div class="paint-note">絵を描く。<br />まちに出す。<br />みんなで見る。<br />駅前が、少し自分ごとになる。</div>
           </div>
         </div>
       </section>
-
       <section class="section movie-section" aria-labelledby="movie-title">
         <div class="wrap split">
           <div>
             <p class="label">IMAGE / MOVIE</p>
             <h2 id="movie-title">文字だけではなく、<br />見て伝わるページに。</h2>
-            <p class="body-text">
-              詳細イメージ、当日の雰囲気写真、動画を入れられる構成にしています。
-              画像に文字は入れず、日付・場所・説明はWeb側のテキストで管理します。
-            </p>
-            <p class="body-text">
-              動画は、完成イメージや当日の様子が伝わる短いムービーを想定。サムネイルを置き、再生できる形で掲載します。
-            </p>
+            <p class="body-text">詳細イメージ、当日の雰囲気写真、動画を入れられる構成にしています。画像に文字は入れず、日付・場所・説明はWeb側のテキストで管理します。</p>
           </div>
           <div class="movie-card">
-            <div class="movie-frame">
-              <div class="play"><span>▶</span></div>
-            </div>
+            <div class="movie-frame"><div class="play"><span>▶</span></div></div>
             <div class="movie-caption">
-              <p class="eyebrow" style="margin-bottom: 10px">MOVIE AREA</p>
-              <h3>経堂駅前が“まちのリビング”になるまで</h3>
-              <p style="color: rgba(255, 255, 255, 0.74); line-height: 1.85">
-                動画ファイルを設置後、このエリアを再生プレイヤーに差し替えます。
-              </p>
+              <p class="eyebrow" style="margin-bottom:10px">MOVIE AREA</p>
+              <h3>経堂駅前が&quot;まちのリビング&quot;になるまで</h3>
+              <p style="color:rgba(255,255,255,0.74);line-height:1.85">動画ファイルを設置後、このエリアを再生プレイヤーに差し替えます。</p>
             </div>
           </div>
         </div>
       </section>
-
       <section class="section safety-section" aria-labelledby="safety-title">
         <div class="wrap split split-top">
           <div>
             <p class="label">SAFETY / OPERATION</p>
             <h2 id="safety-title">安全に、無理なく、続けられる形で。</h2>
-            <p class="body-text">
-              駅前はたくさんの人が通る場所。だからこそ、通行動線を守り、車道側への安全に配慮し、可動式・撤去可能な設えから始めます。
-            </p>
+            <p class="body-text">駅前はたくさんの人が通る場所。だからこそ、通行動線を守り、車道側への安全に配慮し、可動式・撤去可能な設えから始めます。</p>
           </div>
           <div class="safety-grid">
             <div class="safety-item">歩行者の通過幅員を確保します</div>
@@ -1012,96 +289,55 @@
           </div>
         </div>
       </section>
-
       <section class="section" aria-labelledby="roadmap-title">
         <div class="wrap">
           <p class="label">ROADMAP</p>
           <h2 id="roadmap-title">小さく試して、駅前広場全体へ。</h2>
           <div class="roadmap-grid">
-            <article class="phase">
-              <small>PHASE 0</small>
-              <time>2026.6</time>
-              <h3>みちあそび</h3>
-              <p class="body-text">経堂図書館前の歩行者空間で、まず1日、駅前を使ってみる。</p>
-            </article>
-            <article class="phase">
-              <small>PHASE 1</small>
-              <time>2026 夏〜秋</time>
-              <h3>反復試行</h3>
-              <p class="body-text">週末に数回、レイアウトや運営方法を改善しながら担い手の輪を広げる。</p>
-            </article>
-            <article class="phase">
-              <small>PHASE 2</small>
-              <time>2026 冬〜2027 春</time>
-              <h3>社会実験</h3>
-              <p class="body-text">6〜8週間の連続運営へ。図書館連携、商店街連携、滞在の測定を行う。</p>
-            </article>
-            <article class="phase">
-              <small>PHASE 3</small>
-              <time>2027〜2028</time>
-              <h3>リビング化</h3>
-              <p class="body-text">ガヤリン跡地やモビリティハブ整備と並走し、駅前広場全体へ広げる。</p>
-            </article>
+            <article class="phase"><small>PHASE 0</small><time>2026.6</time><h3>みちあそび</h3><p class="body-text">経堂図書館前の歩行者空間で、まず1日、駅前を使ってみる。</p></article>
+            <article class="phase"><small>PHASE 1</small><time>2026 夏〜秋</time><h3>反復試行</h3><p class="body-text">週末に数回、レイアウトや運営方法を改善しながら担い手の輪を広げる。</p></article>
+            <article class="phase"><small>PHASE 2</small><time>2026 冬〜2027 春</time><h3>社会実験</h3><p class="body-text">6〜8週間の連続運営へ。図書館連携、商店街連携、滞在の測定を行う。</p></article>
+            <article class="phase"><small>PHASE 3</small><time>2027〜2028</time><h3>リビング化</h3><p class="body-text">ガヤリン跡地やモビリティハブ整備と並走し、駅前広場全体へ広げる。</p></article>
           </div>
         </div>
       </section>
-
       <section id="support" class="section support-section" aria-labelledby="support-title">
         <div class="wrap split">
           <div>
             <p class="eyebrow">SUPPORT</p>
             <h2 id="support-title">この駅前を、<br />一緒につくりませんか？</h2>
-            <p class="body-text" style="color: rgba(255, 255, 255, 0.84)">
-              経堂駅前を、ただ通り過ぎる場所から、本を読んだり、子どもが遊んだり、近所の人と話したりできる“まちのリビング”へ。
-              構想に賛同してくださる方、応援メッセージを届けてくださる方、一緒に関わってくださる方を募集しています。
-            </p>
+            <p class="body-text" style="color:rgba(255,255,255,0.84)">経堂駅前を、ただ通り過ぎる場所から、本を読んだり、子どもが遊んだり、近所の人と話したりできる&quot;まちのリビング&quot;へ。構想に賛同してくださる方、応援メッセージを届けてくださる方、一緒に関わってくださる方を募集しています。</p>
             <div class="actions">
-              <a class="btn" href="FORM_URL_HERE">賛同・応援メッセージを送る</a>
-              <a class="btn-line" href="LINE_URL_HERE">LINEで最新情報を受け取る</a>
+              <a class="btn" href="#support">賛同・応援メッセージを送る</a>
+              <a class="btn-line" href="#support">LINEで最新情報を受け取る</a>
             </div>
           </div>
           <div class="support-card">
             <h3>賛同フォームでお聞きすること</h3>
-            <p class="body-text">
-              ガチガチの署名活動ではなく、まずは地域の前向きな賛同と仲間集めとして始めます。住所の番地は取得しません。
-            </p>
+            <p class="body-text">ガチガチの署名活動ではなく、まずは地域の前向きな賛同と仲間集めとして始めます。住所の番地は取得しません。</p>
             <ul class="chips">
-              <li>経堂在住</li>
-              <li>経堂周辺在住</li>
-              <li>経堂で働いている</li>
-              <li>経堂で学んでいる</li>
-              <li>経堂駅をよく使う</li>
-              <li>商店街・店舗関係</li>
-              <li>地域活動・学校関係</li>
-              <li>その他</li>
+              <li>経堂在住</li><li>経堂周辺在住</li><li>経堂で働いている</li><li>経堂で学んでいる</li>
+              <li>経堂駅をよく使う</li><li>商店街・店舗関係</li><li>地域活動・学校関係</li><li>その他</li>
             </ul>
-            <div class="notice">
-              いただいた情報は、賛同確認、関係者協議、活動報告、今後のご連絡のために使用します。
-              お名前・メールアドレスなどの個人情報は、本人の許可なくWebサイトやSNSに公開しません。
-            </div>
+            <div class="notice">いただいた情報は、賛同確認、関係者協議、活動報告、今後のご連絡のために使用します。お名前・メールアドレスなどの個人情報は、本人の許可なくWebサイトやSNSに公開しません。</div>
           </div>
         </div>
       </section>
     </main>
-
     <footer class="footer">
       <div class="footer-inner">
-        <div>
-          <strong>経堂駅前にぎわいプロジェクト</strong><br />
-          <span style="color: rgba(255, 255, 255, 0.62)">交通の駅前から、暮らしの駅前へ。</span>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <div><strong>経堂駅前にぎわいプロジェクト</strong><br /><span style="color:rgba(255,255,255,0.62)">交通の駅前から、暮らしの駅前へ。</span></div>
+        <div style="display:flex;flex-wrap:wrap;gap:16px">
           <a href="#michiasobi">みちあそび</a>
           <a href="#enoe">お絵描き</a>
-          <a href="FORM_URL_HERE">賛同フォーム</a>
-          <a href="LINE_URL_HERE">LINE</a>
+          <a href="#support">賛同フォーム</a>
+          <a href="#support">LINE</a>
         </div>
       </div>
     </footer>
-
-    <div class="mobile-sticky" aria-label="固定アクション">
-      <a class="btn" href="FORM_URL_HERE">賛同する</a>
-      <a class="btn-line" href="LINE_URL_HERE">LINE登録</a>
+    <div class="mobile-sticky">
+      <a class="btn" href="#support">賛同する</a>
+      <a class="btn-line" href="#support">LINE登録</a>
     </div>
   </body>
 </html>
